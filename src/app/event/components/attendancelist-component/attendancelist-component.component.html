@@ -1,1 +1,13 @@
-<p>attendancelist-component works!</p>
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+<div class="background">
+  <div class="title">
+    <h1>Lista de Asistentes</h1>
+  </div>
+  <div *ngFor="let item of asisNames; let i = index" class="attendee">
+    <img [src]="asisImg[i]" alt="user picture" aria-label="Assistant Image" style="border-radius: 100px" />
+    <div class="names">
+      {{item}}
+    </div>
+  </div>
+
+</div>
