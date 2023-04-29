@@ -11,13 +11,18 @@ import {LayoutModule} from "@angular/cdk/layout";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {MatCardModule} from "@angular/material/card";
+
+import {AboutusContentComponent} from "./event/components/aboutus-content/aboutus-content.component";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterContentComponent,
     NavComponent,
-    MainContentComponent
+    MainContentComponent,
+    AboutusContentComponent,
   ],
 
   imports: [
@@ -28,6 +33,7 @@ import {MatIconModule} from "@angular/material/icon";
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatCardModule,
 
   ],
 
