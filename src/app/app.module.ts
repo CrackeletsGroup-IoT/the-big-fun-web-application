@@ -12,6 +12,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
+import { AttendancelistComponentComponent } from './event/components/attendancelist-component/attendancelist-component.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {MatCardModule} from "@angular/material/card";
     AppComponent,
     FooterContentComponent,
     NavComponent,
-    MainContentComponent
+    MainContentComponent,
+    AttendancelistComponentComponent
   ],
 
   imports: [
