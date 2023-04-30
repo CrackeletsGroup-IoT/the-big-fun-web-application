@@ -12,7 +12,10 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
-import { FaqContentComponent } from './event/components/faq-content/faq-content.component';
+import {MatTableModule} from "@angular/material/table";
+import {ScrollingModule} from "@angular/cdk/scrolling";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -20,8 +23,7 @@ import { FaqContentComponent } from './event/components/faq-content/faq-content.
     AppComponent,
     FooterContentComponent,
     NavComponent,
-    MainContentComponent,
-    FaqContentComponent
+    MainContentComponent
   ],
 
   imports: [
@@ -33,6 +35,10 @@ import { FaqContentComponent } from './event/components/faq-content/faq-content.
     MatButtonModule,
     MatIconModule,
     MatCardModule,
+    MatTableModule,
+    ScrollingModule,
+    MatInputModule,
+    ReactiveFormsModule,
 
 
 
