@@ -3,6 +3,10 @@ table {
   background: white;
 }
 
+.arriba{
+  margin-top: 10px;
+}
+
 .background {
   background: rgba(99, 99, 163, 0.35);
   border-radius: 30px;
@@ -22,7 +26,7 @@ table {
 
 .example-viewport {
   height: 280px;
-  width: 840px;
+  width: 805px;
 }
 
 .example-item {
