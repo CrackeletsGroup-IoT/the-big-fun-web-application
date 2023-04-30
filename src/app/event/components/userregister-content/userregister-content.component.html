@@ -1,0 +1,104 @@
+<div class="footer arriba">
+
+  <div class="left">
+    <img src="assets/logo.png">
+  </div>
+
+
+  <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+
+    <div class="rights justify-content-center">
+
+      <div class="textos">
+
+        <div class="flex flex-column gap-2 ">
+          <label class="title" >Usuario</label>
+          <form class="example-form container">
+            <mat-form-field class="example-full-width">
+              <mat-label>Escribe tu nombre de usuario</mat-label>
+              <input type="text" matInput placeholder="Ex. IsabellaSH">
+            </mat-form-field>
+          </form>
+        </div>
+
+        <div class="flex flex-column gap-2 ">
+          <label class="title" >Contraseña</label>
+          <form class="example-form container">
+            <mat-form-field class="example-full-width">
+              <mat-label>Escribe tu nombre de contraseña</mat-label>
+              <input matInput value="">
+            </mat-form-field>
+          </form>
+        </div>
+
+
+        <div class="flex flex-column gap-2 ">
+          <label class="title" >Nombre</label>
+          <form class="example-form container">
+            <mat-form-field class="example-full-width">
+              <mat-label>Escribe tu nombre de nombre</mat-label>
+              <input matInput placeholder="Ex. Isabella Soriano Hupaya" value="">
+            </mat-form-field>
+          </form>
+        </div>
+
+        <div class="flex flex-column gap-2 ">
+          <label class="title" >Correo electronico</label>
+
+          <form class="example-form container container2">
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                     placeholder="Ex. pat@example.com">
+              <mat-hint class="errores">Errors appear instantly!</mat-hint>
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')" class="errores">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')" class="errores">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </form>
+
+        </div>
+
+        <div class="flex flex-column gap-2 ">
+          <label class="title" >DNI</label>
+          <form class="example-form container">
+            <mat-form-field class="example-full-width">
+              <mat-label>Escribe tu numero de DNI</mat-label>
+              <input matInput placeholder="Ex. 78159858" value="">
+            </mat-form-field>
+          </form>
+        </div>
+
+        <div>
+          <div class="example-label">
+            <div class="example-button-row ">
+              <button class="uptButton" mat-raised-button style="width: 200px; height: 55px; border-radius: 25px;">Registrarse</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
