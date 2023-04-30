@@ -3,22 +3,14 @@
   <div class="title">
     <h1>FAQ</h1>
   </div>
-  <div class="container" style="max-width: 700px; margin-top: 50px;">
-    <h3> 1. ¿Cómo puedo suscribirme a la aplicación?
-      <br>
-      R: Para suscribirte a nuestra aplicación, simplemente debes crear una cuenta en nuestro sitio web y completar el formulario de registro.
-    </h3>
-  </div>
-  <div class="container" style="max-width: 700px; margin-top: 50px;">
-    <h3> 2. ¿Cómo puedo saber si hay disponibilidad de entradas para un evento?
-      <br>
-      R: Si no hay entradas en un evento este se marcará como SOlD OUT en la información del evento y no te dejará realizar la compra.
-    </h3>
-  </div>
-  <div class="container" style="max-width: 700px; margin-top: 50px;">
-    <h3> 3. ¿Cómo puedo encontrar eventos en mi ciudad?
-      <br>
-      R: Puedes buscar eventos por ubicación en nuestra aplicación. Solo ingresa al apartado del mapa y podrás visualizar los eventos cercanos a tu ubicación
-    </h3>
+  <div *ngFor="let faq of faqs;">
+    <div class="names">
+      <div class="container">
+        <h3> {{faq.id}}. {{faq.question}}
+          <br>
+          {{faq.answer}}
+        </h3>
+      </div>
+    </div>
   </div>
 </div>

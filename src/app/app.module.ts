@@ -16,6 +16,7 @@ import {MatTableModule} from "@angular/material/table";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {FaqContentComponent} from "./event/components/faq-content/faq-content.component";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppComponent,
     FooterContentComponent,
     NavComponent,
-    MainContentComponent
+    MainContentComponent,
+    FaqContentComponent
   ],
 
   imports: [
