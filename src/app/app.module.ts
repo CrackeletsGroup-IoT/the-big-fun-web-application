@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterContentComponent } from './event/components/footer-content/footer-content.component';
 import { NavComponent } from './event/components/nav/nav.component';
 import { MainContentComponent } from './event/components/main-content/main-content.component';
+import { OrganizereventlistContentComponent } from './event/components/organizereventlist-content/organizereventlist-content.component';
+
+
 import {HttpClientModule} from "@angular/common/http";
 import {LayoutModule} from "@angular/cdk/layout";
 import {MatToolbarModule} from "@angular/material/toolbar";
@@ -20,7 +23,8 @@ import {MatTableModule} from "@angular/material/table";
     AppComponent,
     FooterContentComponent,
     NavComponent,
-    MainContentComponent
+    MainContentComponent,
+    OrganizereventlistContentComponent
   ],
 
   imports: [
