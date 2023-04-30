@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class UserloginContentComponent {
 
+  users: Array<any> = [
+    {
+      user: null,
+      password:null,
+    }
+  ];
+
 }
