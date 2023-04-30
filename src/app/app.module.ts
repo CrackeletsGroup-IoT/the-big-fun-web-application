@@ -14,6 +14,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatTableModule} from "@angular/material/table";
 import {ScrollingModule} from "@angular/cdk/scrolling";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
     MatCardModule,
     MatTableModule,
     ScrollingModule,
+    MatInputModule,
+    ReactiveFormsModule,
 
 
 
