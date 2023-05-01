@@ -1,0 +1,35 @@
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+<div class="background">
+  <div class="title">
+    <h1>Registrar evento:</h1>
+  </div>
+  <div class="body">
+    <div class="imgContainer">
+      <img [src]="eventImg" alt="user picture" aria-label="Assistant Image" >
+      <br>
+      <button mat-button class="button">Subir Imagen</button>
+    </div>
+    <br>
+    <div class="inputData">
+      <mat-form-field class="inputText">
+        <mat-label>Nombre evento</mat-label>
+        <input matInput placeholder="Nombre evento">
+      </mat-form-field>
+      <br>
+      <div class="hourdate">
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <mat-form-field class="inputText">
+        <mat-label>Dirección</mat-label>
+        <input matInput placeholder="Dirección">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+</div>

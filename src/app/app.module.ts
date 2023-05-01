@@ -16,6 +16,10 @@ import {MatTableModule} from "@angular/material/table";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import { RegistereventComponentComponent } from './event/components/registerevent-component/registerevent-component.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+
 
 
 @NgModule({
@@ -23,7 +27,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppComponent,
     FooterContentComponent,
     NavComponent,
-    MainContentComponent
+    MainContentComponent,
+    RegistereventComponentComponent
   ],
 
   imports: [
@@ -39,7 +44,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     ScrollingModule,
     MatInputModule,
     ReactiveFormsModule,
-
+    MatDatepickerModule,
+    MatNativeDateModule
 
 
   ],
