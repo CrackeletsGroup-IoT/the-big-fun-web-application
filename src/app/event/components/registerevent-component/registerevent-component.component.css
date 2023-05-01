@@ -6,7 +6,6 @@
   line-height: 57px;
   color: rgba(83, 16, 92, 0.96);
   text-align: left;
-  margin-top: 5px;
 }
 .background {
   background: rgba(99, 99, 163, 0.35);
@@ -21,7 +20,7 @@
 }
 img{
   width: 300px;
-  height: 400px;
+  height: 350px;
 
 }
 .button{
@@ -29,7 +28,6 @@ img{
   border: 1px solid rgba(83, 16, 92, 0.96);
   border-radius: 30px;
   color:rgba(83, 16, 92, 0.96);
-  margin-block: 10px;
 }
 
 .body{
@@ -44,7 +42,7 @@ img{
 }
 .inputText {
   width: 400px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-family: "Nunito", sans-serif;
   font-style: normal;
   border-radius: 5px;
@@ -56,7 +54,7 @@ img{
 }
 .calendar{
   width: 200px;
-  margin-bottom:10px;
+  margin-bottom:5px;
   font-family: "Nunito", sans-serif;
   font-style: normal;
   display:flex;
@@ -65,21 +63,20 @@ img{
 }
 .dropdown{
 
-  margin-bottom:10px;
+  margin-bottom:5px;
   font-family: "Nunito", sans-serif;
   font-style: normal;
   border-radius: 5px;
 }
 .textarea{
   width: 400px;
-  margin-bottom:10px;
+  margin-bottom:5px;
   font-family: "Nunito", sans-serif;
   font-style: normal;
 
 }
 .maxcapacity{
   width: 400px;
-  margin-bottom:10px;
   font-family: "Nunito", sans-serif;
   font-style: normal;
   border-radius: 5px;
@@ -87,8 +84,9 @@ img{
 @media (min-width: 768px) {
   .background {
     max-width: 1000px;
+    height: 540px;
     margin: 0 auto;
-    padding: 50px;
+    padding: 30px;
   }
 
 }
