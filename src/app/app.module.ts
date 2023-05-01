@@ -18,6 +18,9 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {RegistereventComponentComponent} from "./event/components/registerevent-component/registerevent-component.component";
+import {MatSelectModule} from "@angular/material/select";
+
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     AppComponent,
     FooterContentComponent,
     NavComponent,
-    MainContentComponent
+    MainContentComponent,
+    RegistereventComponentComponent
   ],
 
   imports: [
@@ -42,7 +46,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatInputModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule,
 
 
   ],

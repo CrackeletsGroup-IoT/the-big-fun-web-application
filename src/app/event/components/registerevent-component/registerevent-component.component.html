@@ -17,17 +17,33 @@
       </mat-form-field>
       <br>
       <div class="hourdate">
-        <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
+        <mat-form-field class="calendar" appearance="fill">
+          <mat-label>Elige una fecha</mat-label>
           <input matInput [matDatepicker]="picker">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="dropdown w-full md:w-18rem">
+          <mat-label>Tipo de entrada</mat-label>
+          <mat-select [placeholder]="'Tipo de entrada'">
+            <mat-option *ngFor="let ticket of typeTickets" [value]="ticket">{{ ticket.name }}</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <mat-form-field class="inputText">
         <mat-label>Dirección</mat-label>
         <input matInput placeholder="Dirección">
       </mat-form-field>
+      <mat-form-field class="textarea">
+        <textarea matInput placeholder="Descripción del evento" rows="2"></textarea>
+      </mat-form-field>
+      <mat-form-field class="maxcapacity">
+        <mat-label>Capacidad máxima (100)</mat-label>
+        <input matInput type="number"  name="maxCapacity" min="0" max="100">
+      </mat-form-field>
+      <button mat-button class="button">Registrar evento</button>
+
+
     </div>
 
   </div>

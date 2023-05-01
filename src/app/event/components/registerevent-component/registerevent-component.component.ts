@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./registerevent-component.component.css']
 })
 export class RegistereventComponentComponent {
+
   eventImg= "https://www.anayainfantilyjuvenil.com/images/libros/grande/9788469833728-la-vida-es-sueno-clasicos-hispanicos.jpg"
   nameEvent=null
   addressEvent=null
