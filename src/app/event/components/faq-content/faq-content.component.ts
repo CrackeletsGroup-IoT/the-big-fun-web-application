@@ -9,19 +9,19 @@ export class FaqContentComponent {
   faqs=[
     {
       id:"1",
-      question:"¿Cómo puedo suscribirme a la aplicación?",
-      answer:"R: Para suscribirte a nuestra aplicación, simplemente debes crear una cuenta en nuestro sitio web y completar el formulario de registro."
+      question:"¿How can I subscribe to the application?",
+      answer:"A: To subscribe to our application, simply create an account on our website and complete the registration form."
     },
     {
       id:"2",
-      question:"¿Cómo puedo saber si hay disponibilidad de entradas para un evento?",
-      answer:"R: Si no hay entradas en un evento este se marcará como SOlD OUT en la información del evento y no te dejará realizar la compra."
+      question:"How can I find out if tickets are available for an event?",
+      answer:"A: If there are no tickets for an event it will be marked as SOlD OUT in the event information and will not allow you to make the purchase."
 
     },
     {
       id:"3",
-      question:"¿Cómo puedo encontrar eventos en mi ciudad?",
-      answer:"R: Puedes buscar eventos por ubicación en nuestra aplicación. Solo ingresa al apartado del mapa y podrás visualizar los eventos cercanos a tu ubicación"
+      question:"How can I find events in my city?",
+      answer:"A: You can search for events by location in our application. Just go to the map section and you will be able to visualize the events near your location."
     }
   ]
 }
