@@ -1,8 +1,8 @@
 <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
 <div class="background">
   <div class="title">
-    <h1>COMPRA EXITOSA</h1>
-    <button mat-button class="payButton">PAGAR CON TARJETA</button>
+    <h1>BUY TICKETS</h1>
+    <button mat-button class="payButton">Pay By Credit Card</button>
   </div>
   <div class="imgContainer">
     <img [src]="eventImg" alt="user picture" aria-label="Assistant Image" style="margin-left: 10px"/>
@@ -11,32 +11,32 @@
   <div class="datatable">
     <mat-table [dataSource]="dataSource" class="table">
       <ng-container matColumnDef="date">
-        <mat-header-cell *matHeaderCellDef>Fecha</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.date }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="hour">
-        <mat-header-cell *matHeaderCellDef>Hora</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Hour</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.hour }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="nameEvent">
-        <mat-header-cell *matHeaderCellDef>Nombre del evento</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Event Name</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.nameEvent }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="cost">
-        <mat-header-cell *matHeaderCellDef>Costo</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.cost }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="capacity">
-        <mat-header-cell *matHeaderCellDef>Aforo</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Capacity</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.capacity}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="availability">
-        <mat-header-cell *matHeaderCellDef>Disponibilidad</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Availability</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.availability }}</mat-cell>
       </ng-container>
 
