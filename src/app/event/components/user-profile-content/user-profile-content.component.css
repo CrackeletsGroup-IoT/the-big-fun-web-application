@@ -29,7 +29,6 @@
   text-align: justify;
   background: #ffffff;
   margin-bottom: 10px;
-  margin-left:30px;
 }
 
 .container h3 {
@@ -67,15 +66,15 @@
 .image-container img{
   height: auto;
   border-radius: 600px;
-  max-width: 350px;
+  max-width: 50%;
   width:100%;
-  margin-left:  130px;
 }
 .info {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   margin-left: 20px;
+  margin-bottom: 50px;
 }
 .button-container {
   display: flex;
@@ -93,11 +92,13 @@
     margin-top:135px;
   }
   .image-container{
+
     margin-right: 0px;
     margin-top: 65px;
     display:flex;
     margin-bottom: 30px;
     align-items: center;
+    justify-content: center;
   }
   .image-container img {
     border-radius:600px;

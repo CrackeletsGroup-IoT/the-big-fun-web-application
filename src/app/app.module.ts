@@ -24,6 +24,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDividerModule} from "@angular/material/divider";
+import {UserProfileContentComponent} from "./event/components/user-profile-content/user-profile-content.component";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatDividerModule} from "@angular/material/divider";
     AppComponent,
     FooterContentComponent,
     NavComponent,
-    MainContentComponent
+    MainContentComponent,
+    UserProfileContentComponent
   ],
 
   imports: [
