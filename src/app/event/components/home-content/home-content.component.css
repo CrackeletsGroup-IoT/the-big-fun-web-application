@@ -12,6 +12,7 @@
 
 
 }
+
 .eventName {
   font-family: "Nunito", sans-serif;
   font-style: normal;
@@ -19,6 +20,7 @@
   font-size: 20px;
   line-height: 57px;
   color: rgba(83, 16, 92, 0.96);
+
 }
 .grid-container {
   display: grid;
@@ -26,6 +28,7 @@
   grid-gap: 20px;
   overflow-y: auto;
   height: 500px;
+
 }
 
 .card {
@@ -35,6 +38,7 @@
   text-align: center;
   margin: 10px;
 
+
 }
 
 .card-image {
@@ -42,6 +46,7 @@
   overflow: hidden;
   width:250px;
   border-radius: 30px;
+
 }
 .title h1{
   font-family: "Nunito", sans-serif;
