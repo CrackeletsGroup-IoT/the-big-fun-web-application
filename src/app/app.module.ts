@@ -20,6 +20,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {HomeContentComponent} from "./event/components/home-content/home-content.component";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     AppComponent,
     FooterContentComponent,
     NavComponent,
-    MainContentComponent
+    MainContentComponent,
+    HomeContentComponent
   ],
 
   imports: [
