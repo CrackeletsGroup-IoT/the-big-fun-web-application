@@ -1,7 +1,7 @@
 <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
 <div class="background">
   <div class="title">
-    <h1>COMPRA EXITOSA</h1>
+    <h1>SUCCESSFUL PURCHASE</h1>
   </div>
   <div class="imgContainer">
     <img [src]="eventImg" alt="user picture" aria-label="Assistant Image" style="margin-left: 10px"/>
@@ -11,27 +11,27 @@
   <div class="datatable">
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="date">
-        <mat-header-cell *matHeaderCellDef>Fecha</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.date }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="hour">
-        <mat-header-cell *matHeaderCellDef>Hora</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Hour</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.hour }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="nameEvent">
-        <mat-header-cell *matHeaderCellDef>Nombre del evento</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Name Event</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.nameEvent }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="qTikects">
-        <mat-header-cell *matHeaderCellDef>Cantidad tickets</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Number of tickets</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.qTikects }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="qrCode">
-        <mat-header-cell *matHeaderCellDef>Código QR de la compra</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>QR CODE</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.qrCode }}</mat-cell>
       </ng-container>
 
