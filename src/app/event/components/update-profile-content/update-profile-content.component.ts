@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./update-profile-content.component.css']
 })
 export class UpdateProfileContentComponent {
+  userData = {
+    username: "kane",
+    fullname: "kevin Oliva Alva",
+    email: "kevin.oliva.alva@gmail.com",
+    phone: "999563680",
+    dni: "73089923"
+  };
 
 }
