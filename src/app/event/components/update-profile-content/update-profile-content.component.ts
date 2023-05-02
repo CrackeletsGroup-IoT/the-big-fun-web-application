@@ -13,5 +13,8 @@ export class UpdateProfileContentComponent {
     phone: "999563680",
     dni: "73089923"
   };
-
+  updateData() {
+    // Lógica para guardar los datos en el backend o en algún servicio de almacenamiento
+    console.log('Datos guardados: ', this.userData);
+  }
 }
