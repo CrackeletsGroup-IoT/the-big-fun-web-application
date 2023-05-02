@@ -2,4 +2,5 @@
   "/api/v1/*": "/$1",
   "/sign-in": "/signin",
   "/sign-up": "/signup"
+
 }
