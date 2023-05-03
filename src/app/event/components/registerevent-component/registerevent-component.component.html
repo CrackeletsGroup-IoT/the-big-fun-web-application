@@ -4,12 +4,6 @@
     <h1>Register event:</h1>
   </div>
   <div class="body">
-    <div class="imgContainer">
-<!--      <img [src]="eventImg" alt="user picture" aria-label="Assistant Image" >-->
-      <br>
-      <button mat-button class="button">Upload image</button>
-    </div>
-    <br>
     <div class="inputData">
 
       <mat-form-field class="inputText">
@@ -24,21 +18,16 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <mat-form-field class="dropdown w-full md:w-18rem">
-          <mat-label>Type of ticket</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let ticket of typeTickets" [value]="ticket">{{ ticket.name }}</mat-option>
-          </mat-select>
+        <mat-form-field class="imagelink">
+          <mat-label>Image</mat-label>
+          <input matInput [(ngModel)]="event.img">
         </mat-form-field>
       </div>
       <mat-form-field class="inputText">
         <mat-label>Hour</mat-label>
         <input matInput [(ngModel)]="event.hour">
       </mat-form-field>
-      <mat-form-field class="inputText">
-        <mat-label>Image</mat-label>
-        <input matInput [(ngModel)]="event.img">
-      </mat-form-field>
+
       <mat-form-field class="inputText">
         <mat-label>Price</mat-label>
         <input matInput [(ngModel)]="event.cost">
