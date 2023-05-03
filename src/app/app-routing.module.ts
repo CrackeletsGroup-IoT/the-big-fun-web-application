@@ -9,15 +9,20 @@ import {
   RegistereventComponentComponent
 } from "./event/components/registerevent-component/registerevent-component.component";
 import {FaqContentComponent} from "./event/components/faq-content/faq-content.component";
+import {
+  EventdetailsComponentComponent
+} from "./event/components/eventdetails-component/eventdetails-component.component";
 
 
 const routes:Routes=[
+  { path: '', component: HomeContentComponent },
   { path: 'home', component: HomeContentComponent },
   { path: 'aboutUs', component: AboutusContentComponent },
   { path: 'events', component: ViewEventsContentComponent },
   { path: 'signUp', component: UserregisterContentComponent },
   { path: 'eventRegister', component: RegistereventComponentComponent },
   { path: 'faqs', component: FaqContentComponent },
+  { path: 'eventDetail/', component: EventdetailsComponentComponent },
 ];
 
 @NgModule({
