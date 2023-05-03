@@ -7,13 +7,13 @@
     <h1>POPULAR EVENTS</h1>
   </div>
   <div class="grid-container">
-    <div *ngFor="let event of events" class="card">
+    <div *ngFor="let event of events; let i=index" class="card">
       <div class="card-image">
         <img [src]="event.img" [alt]="event.name">
       </div>
       <div class="card-title eventName">{{ event.name }}</div>
       <div class="card-action">
-        <a href="eventDetail">
+        <a [routerLink]="['/eventDetail',i]">
           <button mat-button class="event-button">View details</button>
         </a>
 
