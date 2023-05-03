@@ -53,6 +53,8 @@ import {
 } from "./event/components/update-profile-content/update-profile-content.component";
 import {UserloginContentComponent} from "./event/components/userlogin-content/userlogin-content.component";
 import {ViewEventsContentComponent} from "./event/components/view-events-content/view-events-content.component";
+import {AppRoutingModule} from "./app-routing.module";
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -68,7 +70,6 @@ import {ViewEventsContentComponent} from "./event/components/view-events-content
     BuyTicketsContentComponent,
     EventdetailsComponentComponent,
     FaqContentComponent,
-    HomeContentComponent,
     MainContentComponent,
     OrganizereventlistContentComponent,
     OrganizerprofileContentComponent,
@@ -102,7 +103,9 @@ import {ViewEventsContentComponent} from "./event/components/view-events-content
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
-    MatDividerModule
+    MatDividerModule,
+    AppRoutingModule,
+    RouterModule,
   ],
 
   providers: [],

@@ -5,11 +5,13 @@
 
     <div class="spacer"></div>
 
-    <a mat-button href="#">Home</a>
-    <a mat-button href="#">About Us</a>
-    <a mat-button href="#">Events</a>
-    <a mat-button href="#">Sign Up</a>
-    <a mat-raised-button color="accent" href="#">Sign In</a>
+    <a routerLink="/home" routerLinkActive="active" mat-button>Home</a>
+    <a routerLink="/aboutUs" mat-button>About Us</a>
+    <a routerLink="/events" mat-button>Events</a>
+    <a routerLink="/signUp" mat-button>Sign Up</a>
+    <a routerLink="/eventRegister" mat-button>Register Event</a>
 
   </mat-toolbar>
 </div>
+
+<router-outlet></router-outlet>
