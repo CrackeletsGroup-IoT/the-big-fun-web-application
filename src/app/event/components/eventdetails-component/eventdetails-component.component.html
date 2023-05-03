@@ -1,26 +1,26 @@
 <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
 <div class="background">
   <div class="title">
-    <h1>{{nameEvent}}</h1>
+    <h1>{{currentEvent.name}}</h1>
   </div>
   <div class="body">
     <div class="imgContainer">
-      <img [src]="img" alt="user picture" aria-label="Event Image" >
+      <img [src]="currentEvent.img" alt="user picture" aria-label="Event Image" >
     </div>
     <br>
 
     <div class="information">
-      Date: {{date}}
+      Date: {{currentEvent.date}}
       <br>
-      Hour: {{hour}}
+      Hour: {{currentEvent.date}}
       <br>
       Location: {{location}}
       <br>
-      Price: {{cost}}
+      Price: {{currentEvent.cost}}
       <br>
-      Capacity: {{capacity}}
+      Capacity: {{currentEvent.aforo}}
       <br>
-      <button mat-button class="button">Buy</button>
+      <button (click)="buy()" mat-button class="button">Buy</button>
     </div>
   </div>
 
