@@ -1,0 +1,64 @@
+
+div{
+  padding:8px;
+  margin:auto;
+}
+
+.title1{
+  text-align: center;
+  color: rgba(83, 16, 92, 1);
+  font-size:40px;
+  font-family: "Nunito", sans-serif;
+  font-weight:bold;
+  margin-bottom: 25px;
+}
+.subs{
+  text-align: justify;
+  font-size:15px;
+  color: #B6B6B6;
+  font-family: "Nunito", sans-serif;
+  margin-top: 10px;
+}
+
+.paragraphs{
+  text-align: justify;
+  font-size:17px;
+  padding-top:20px;
+  font-family: "Nunito", sans-serif;
+}
+
+.example-card {
+  width: 550px;
+}
+
+.footer{
+  bottom: 0;
+  width: 98.4%;
+  padding: 10px;
+  display: flex;
+}
+
+.footer>div{
+  width: 33%;
+}
+
+.contentt{
+  display: flex;
+  justify-content: center;
+}
+
+.rights{
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+.left{
+  margin-left: 20px;
+  margin-top: 4px;
+}
+
+.ancho{
+  width: 550px;
+}
