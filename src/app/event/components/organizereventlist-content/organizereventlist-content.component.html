@@ -1,0 +1,69 @@
+<div class="arriba ">
+
+  <div class="background ">
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+
+    <div class="title">
+      <h1>My active events</h1>
+    </div>
+
+    <cdk-virtual-scroll-viewport  appendOnly itemSize="50" class="example-viewport">
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 textos">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Name of the event </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="hour">
+          <th mat-header-cell *matHeaderCellDef> Hour </th>
+          <td mat-cell *matCellDef="let element"> {{element.hour}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="day">
+          <th mat-header-cell *matHeaderCellDef> Day </th>
+          <td mat-cell *matCellDef="let element"> {{element.day}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="month">
+          <th mat-header-cell *matHeaderCellDef> Moth </th>
+          <td mat-cell *matCellDef="let element"> {{element.month}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </cdk-virtual-scroll-viewport >
+
+
+    <div class="footer " >
+      <div class="left">
+        <div class="example-label">
+          <div class="example-button-row">
+            <button mat-raised-button>Register event</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="rights ">
+        <div class="example-label">
+          <div class="example-button-row">
+            <button mat-raised-button>Event history</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

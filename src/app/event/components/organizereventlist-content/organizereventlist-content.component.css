@@ -1,0 +1,103 @@
+table {
+  width: 100%;
+  background: white;
+}
+
+.arriba{
+  margin-top: 10px;
+}
+
+.background {
+  background: rgba(99, 99, 163, 0.35);
+  border-radius: 30px;
+  padding: 30px;
+  max-height: 390px;
+}
+
+@media (min-width: 768px) {
+  .background {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+  }
+}
+
+
+
+.example-viewport {
+  height: 280px;
+  width: 805px;
+}
+
+.example-item {
+  height: 50px;
+}
+
+
+
+.title h1 {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 57px;
+  color: rgba(83, 16, 92, 0.96);
+  text-align: left;
+  margin-top: 0px;
+}
+
+.rights{
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+
+}
+
+.left{
+  margin-left: 20px;
+  margin-top: 4px;
+}
+
+.footer{
+  width: 98.4%;
+  display: flex;
+  justify-content:center;
+}
+
+.footer>div{
+  width: 33%;
+}
+
+.contentt{
+  display: flex;
+  justify-content: center;
+}
+
+.textos{
+  font-family: 'Nunito', sans-serif;
+}
+
+
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 80px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+  background: white;
+  color: rgba(83, 16, 92, 0.96);
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight:bold;
+  height: 45px;
+
+}
