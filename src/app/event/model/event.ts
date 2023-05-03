@@ -4,6 +4,6 @@ export interface Event {
   img: string;
   date: string;
   hour: string;
-  cost: number;
-  aforo: number;
+  cost: string;
+  aforo: string;
 }

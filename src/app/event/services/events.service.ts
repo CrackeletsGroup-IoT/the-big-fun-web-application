@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class EventsServiceService extends BaseService<Event>{
+export class EventsService extends BaseService<Event>{
 
   constructor(http:HttpClient) {
     super(http);

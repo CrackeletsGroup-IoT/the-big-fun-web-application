@@ -6,7 +6,7 @@ export class BaseService <T> {
   basePath='http://localhost:3000/api/v1/resources'
 
   httpOptions={
-    headers:new HttpHeaders({'Content-type': 'application/json'})
+    headers:new HttpHeaders({'Content-type': 'application/json',})
   }
 
   constructor(private http:HttpClient) { }

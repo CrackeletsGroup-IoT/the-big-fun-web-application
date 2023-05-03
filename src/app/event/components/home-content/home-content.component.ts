@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {EventsService} from "../../services/events.service";
 //import { Event } from '../thebigfun/models/event.model';
 
 @Component({
@@ -6,9 +7,18 @@ import { Component } from '@angular/core';
   templateUrl: './home-content.component.html',
   styleUrls: ['./home-content.component.css']
 })
-export class HomeContentComponent {
+export class HomeContentComponent implements OnInit {
 
-  events= [
+  //events =[]  // esto da error
+  events=<any> [];
+
+  /*
+  En un inicio lo declare mal y me daba error
+  tener cuidado,
+  otra forma de declarar un array es  events:Array<any> =[];
+  */
+
+    /*
     {
       name : 'Chatarrita',
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqx5gurXNgoiEx8PNnw-AJm7bJz3F1-TLpgA&usqp=CAU'
@@ -32,11 +42,22 @@ export class HomeContentComponent {
     {
       name: 'Algo Inutil',
       img: 'https://www.cultura.gob.ar/media/uploads/algo_inutil_redes_2023_cuadrada.png'
-    }
-  ];
+    }*/
 
-  showDetails(event: Event) {
-    // Función para mostrar detalles del evento
+
+  constructor(private eventService:EventsService) {  }
+
+  ngOnInit(): void {
+    this.getAllEvents();
   }
+
+  getAllEvents() {
+    this.eventService.getAll().subscribe((response:any)=>{
+      this.events=response;
+      console.log(this.events)
+    })
+  }
+
+
 
 }

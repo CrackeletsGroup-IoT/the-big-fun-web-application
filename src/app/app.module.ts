@@ -26,6 +26,33 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDividerModule} from "@angular/material/divider";
+import {HomeContentComponent} from "./event/components/home-content/home-content.component";
+import {AboutusContentComponent} from "./event/components/aboutus-content/aboutus-content.component";
+import {
+  AttendancelistComponentComponent
+} from "./event/components/attendancelist-component/attendancelist-component.component";
+import {BuyTicketsContentComponent} from "./event/components/buy-tickets-content/buy-tickets-content.component";
+import {
+  EventdetailsComponentComponent
+} from "./event/components/eventdetails-component/eventdetails-component.component";
+import {FaqContentComponent} from "./event/components/faq-content/faq-content.component";
+import {
+  OrganizereventlistContentComponent
+} from "./event/components/organizereventlist-content/organizereventlist-content.component";
+import {
+  OrganizerprofileContentComponent
+} from "./event/components/organizerprofile-content/organizerprofile-content.component";
+import {
+  PaymentconfirmationContentComponent
+} from "./event/components/paymentconfirmation-content/paymentconfirmation-content.component";
+import {
+  RegistereventComponentComponent
+} from "./event/components/registerevent-component/registerevent-component.component";
+import {
+  UpdateProfileContentComponent
+} from "./event/components/update-profile-content/update-profile-content.component";
+import {UserloginContentComponent} from "./event/components/userlogin-content/userlogin-content.component";
+import {ViewEventsContentComponent} from "./event/components/view-events-content/view-events-content.component";
 
 
 @NgModule({
@@ -34,7 +61,23 @@ import {MatDividerModule} from "@angular/material/divider";
     FooterContentComponent,
     NavComponent,
     MainContentComponent,
-    UserregisterContentComponent
+    UserregisterContentComponent,
+    HomeContentComponent,
+    AboutusContentComponent,
+    AttendancelistComponentComponent,
+    BuyTicketsContentComponent,
+    EventdetailsComponentComponent,
+    FaqContentComponent,
+    HomeContentComponent,
+    MainContentComponent,
+    OrganizereventlistContentComponent,
+    OrganizerprofileContentComponent,
+    PaymentconfirmationContentComponent,
+    RegistereventComponentComponent,
+    UpdateProfileContentComponent,
+    UserloginContentComponent,
+    UserregisterContentComponent,
+    ViewEventsContentComponent,
   ],
 
   imports: [

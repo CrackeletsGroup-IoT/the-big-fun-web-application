@@ -17,42 +17,6 @@
       "hour": "12pm",
       "cost": "45$",
       "aforo": "350"
-    },
-    {
-      "id": 3,
-      "name": "Algo Inutil",
-      "img": "https://www.cultura.gob.ar/media/uploads/algo_inutil_redes_2023_cuadrada.png",
-      "date": "23/06/2023",
-      "hour": "9pm",
-      "cost": "12$",
-      "aforo": "90"
-    },
-    {
-      "id": 4,
-      "name": "Algo Inutil",
-      "img": "https://www.cultura.gob.ar/media/uploads/algo_inutil_redes_2023_cuadrada.png",
-      "date": "23/06/2023",
-      "hour": "9pm",
-      "cost": "12$",
-      "aforo": "90"
-    },
-    {
-      "id": 5,
-      "name": "Algo Inutil",
-      "img": "https://www.cultura.gob.ar/media/uploads/algo_inutil_redes_2023_cuadrada.png",
-      "date": "23/06/2023",
-      "hour": "9pm",
-      "cost": "12$",
-      "aforo": "90"
-    },
-    {
-      "id": 6,
-      "name": "Algo Inutil",
-      "img": "https://www.cultura.gob.ar/media/uploads/algo_inutil_redes_2023_cuadrada.png",
-      "date": "23/06/2023",
-      "hour": "9pm",
-      "cost": "12$",
-      "aforo": "90"
     }
   ],
 
