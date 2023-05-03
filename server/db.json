@@ -20,12 +20,22 @@
     },
     {
       "img": "https://www.anayainfantilyjuvenil.com/images/libros/grande/9788469833728-la-vida-es-sueno-clasicos-hispanicos.jpg",
-      "name": "Raul",
+      "name": "La vida es suenio",
       "date": "2023-05-24T05:00:00.000Z",
       "cost": "20$",
       "description": "asfasfaf",
       "aforo": "500",
       "id": 3
+    },
+    {
+      "name": "Music Concert",
+      "date": "2023-05-10T05:00:00.000Z",
+      "hour": "12pm",
+      "img": "https://marketplace.canva.com/EAEn7HPzgmg/1/0/1131w/canva-purple-modern-music-concert-flyer-oW_L55Pxz54.jpg",
+      "cost": "60$",
+      "description": "Concert at San Marcos Stadium",
+      "aforo": "600",
+      "id": 4
     }
   ],
   "users": [
