@@ -22,7 +22,7 @@ const routes:Routes=[
   { path: 'signUp', component: UserregisterContentComponent },
   { path: 'eventRegister', component: RegistereventComponentComponent },
   { path: 'faqs', component: FaqContentComponent },
-  { path: 'eventDetail/', component: EventdetailsComponentComponent },
+  { path: 'eventDetail', component: EventdetailsComponentComponent },
 ];
 
 @NgModule({
