@@ -1,0 +1,19 @@
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+<div class="background">
+  <div class="title">
+    <h1>FAQ</h1>
+  </div>
+  <div class="faqs-container">
+    <div *ngFor="let faq of faqs;">
+      <div class="names">
+        <div class="container">
+          <h3> {{faq.id}}. {{faq.question}}
+            <br>
+            {{faq.answer}}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

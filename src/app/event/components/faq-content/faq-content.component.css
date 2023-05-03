@@ -1,0 +1,62 @@
+.title h1 {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 57px;
+  color: rgba(83, 16, 92, 0.96);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.background {
+  background: rgba(99, 99, 163, 0.35);
+  border-radius: 30px;
+  padding: 30px;
+}
+
+.container {
+  background: #ffffff;
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 700px;
+  margin-top: 10px;
+}
+
+.container h3 {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+  margin: 0;
+}
+.faqs-container{
+  overflow-y:scroll;
+  height: 340px;
+}
+@media (min-width: 768px) {
+  .background {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    align-content:center;
+    left:50%;
+    justify-content:center;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+  }
+
+  .container h3 {
+    font-size: 18px;
+    line-height: 32px;
+  }
+}
