@@ -1,0 +1,37 @@
+.title h1 {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 57px;
+  color: rgba(83, 16, 92, 0.96);
+  text-align: left;
+  margin-top: 5px;
+}
+
+.background {
+  background: rgba(99, 99, 163, 0.35);
+  border-radius: 30px;
+  padding: 30px;
+}
+
+img{
+  display: inline;
+  width: 200px;
+  margin-right: 100px;
+}
+.imgContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+@media (min-width: 768px) {
+  .background {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+    margin-top: 10px;
+  }
+
+}
