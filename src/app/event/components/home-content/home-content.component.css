@@ -45,6 +45,7 @@
   grid-row: 1 / 2;
   overflow: hidden;
   width:250px;
+  height:250px;
   border-radius: 30px;
 
 }
