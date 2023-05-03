@@ -1,0 +1,56 @@
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+<div class="background">
+  <div class="title">
+    <h1>BUY TICKETS</h1>
+    <button mat-button class="payButton">Pay By Credit Card</button>
+  </div>
+  <div class="imgContainer">
+    <img [src]="eventImg" alt="user picture" aria-label="Assistant Image" style="margin-left: 10px"/>
+  </div>
+  <br>
+  <div class="datatable">
+    <mat-table [dataSource]="dataSource" class="table">
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.date }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="hour">
+        <mat-header-cell *matHeaderCellDef>Hour</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.hour }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="nameEvent">
+        <mat-header-cell *matHeaderCellDef>Event Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.nameEvent }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cost">
+        <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.cost }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="capacity">
+        <mat-header-cell *matHeaderCellDef>Capacity</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.capacity}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="availability">
+        <mat-header-cell *matHeaderCellDef>Availability</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.availability }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="['date', 'hour', 'nameEvent', 'cost', 'capacity','availability']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['date', 'hour', 'nameEvent', 'cost', 'capacity','availability']"></mat-row>
+    </mat-table>
+  </div>
+  <br>
+  <div class="availability">
+    <mat-form-field >
+      <mat-label>Cantidad Tickets</mat-label>
+      <input matInput type="number"  name="maxCapacity" min="0" max="{{availability}}">
+    </mat-form-field>
+  </div>
+
+
+</div>
