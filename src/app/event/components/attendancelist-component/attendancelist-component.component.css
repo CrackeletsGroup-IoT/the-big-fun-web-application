@@ -1,0 +1,57 @@
+.title h1 {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 57px;
+  color: rgba(83, 16, 92, 0.96);
+  text-align: center;
+  margin-top: 0px;
+}
+
+.background {
+  background: rgba(99, 99, 163, 0.35);
+  border-radius: 30px;
+  padding: 30px;
+
+}
+.names{
+  width: 313px;
+  height: 49px;
+  left: 372px;
+  top: 528px;
+
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 49px;
+
+  color: #000000;
+  display: inline;
+
+}
+img{
+  display: inline;
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+
+}
+.attendee {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  margin-top: 30px;
+
+}
+@media (min-width: 768px) {
+  .background {
+    max-width: 800px;
+    height: 450px;
+    margin: 0 auto;
+    padding: 50px;
+  }
+
+}
