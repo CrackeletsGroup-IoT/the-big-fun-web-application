@@ -1,0 +1,27 @@
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+<div class="background">
+  <div class="title">
+    <h1>{{nameEvent}}</h1>
+  </div>
+  <div class="body">
+    <div class="imgContainer">
+      <img [src]="img" alt="user picture" aria-label="Event Image" >
+    </div>
+    <br>
+
+    <div class="information">
+      Date: {{date}}
+      <br>
+      Hour: {{hour}}
+      <br>
+      Location: {{location}}
+      <br>
+      Price: {{cost}}
+      <br>
+      Capacity: {{capacity}}
+      <br>
+      <button mat-button class="button">Buy</button>
+    </div>
+  </div>
+
+</div>
