@@ -1,0 +1,98 @@
+div{
+  padding:8px;
+  margin:auto;
+}
+
+img{
+  width: 450px;
+  height: 404px;
+}
+
+.footer>div{
+  width: 33%;
+}
+
+.arriba{
+  margin-top: 10px;
+}
+
+.footer{
+  bottom: 0;
+  width: 98.4%;
+  padding: 10px;
+  display: flex;
+}
+
+.left{
+  margin-left: 90px;
+  margin-top: 4px;
+}
+
+.title{
+  text-align: center;
+  justify-content:center;
+  color: rgba(83, 16, 92, 1);
+  font-size:40px;
+  font-family: "Nunito", sans-serif;
+  font-weight:bold;
+  margin-left: 50px;
+}
+
+.example-viewport {
+  height: 450px;
+  width: 805px;
+}
+
+.rights{
+  display: flex;
+  align-items: center;
+  margin-left: 90px;
+}
+
+.textos{
+  font-family: "Nunito", sans-serif;
+}
+.container {
+  width: 500px;
+  height: 50px;
+  border: 1px solid #53105c;
+  border-radius: 10px;
+  text-align: justify;
+  background: #ffffff;
+  margin-bottom: 30px;
+}
+.container h3 {
+  width: 500px;
+  height: 50px;
+  margin-top: 10px;
+  text-align:center;
+  font-family: "Nunito", sans-serif;
+  color: #53105c;
+}
+
+.example-label {
+  display: table-cell;
+  margin-left: 80px;
+  justify-content: center;
+}
+
+.example-button-row .mat-mdc-button-base {
+  color: rgba(83, 16, 92, 0.96);
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight:bold;
+  height: 45px;
+  justify-content: center;
+}
+
+.uptButton {
+  border: 1px solid #53105c;
+  margin-left: 140px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+

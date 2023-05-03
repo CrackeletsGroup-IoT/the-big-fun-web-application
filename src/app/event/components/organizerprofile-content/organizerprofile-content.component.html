@@ -1,0 +1,62 @@
+<div class="footer arriba">
+
+  <div class="left">
+    <h1 class="title">Organizer Profile</h1>
+    <img [src]="list_organizer.organizer.organizerimage" alt="organizer photo">
+  </div>
+
+
+  <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+
+    <div class="rights justify-content-center">
+
+      <div class="textos">
+
+        <div class="container">
+          <h3>User: {{list_organizer.organizer.username}}</h3>
+        </div>
+
+        <div class="container">
+          <h3>Name: {{list_organizer.organizer.fullname}}</h3>
+        </div>
+
+        <div class="container">
+          <h3>Email: {{list_organizer.organizer.email}}</h3>
+        </div>
+
+        <div class="container">
+          <h3>Name Company: {{list_organizer.organizer.namecompany}}</h3>
+        </div>
+
+        <div class="container">
+          <h3>RUC: {{list_organizer.organizer.ruc}}</h3>
+        </div>
+
+        <div class="container">
+          <h3>Adress: {{list_organizer.organizer.adresscompany}}</h3>
+        </div>
+
+        <div class="container">
+          <h3>Phone: {{list_organizer.organizer.phone}}</h3>
+        </div>
+
+        <div class="container">
+          <h3>DNI: {{list_organizer.organizer.dni}}</h3>
+        </div>
+
+        <div>
+          <div class="example-label">
+            <div class="example-button-row ">
+              <button class="uptButton" mat-raised-button style="width: 200px; height: 55px; border-radius: 25px;">Update data</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
+
+
+
+
