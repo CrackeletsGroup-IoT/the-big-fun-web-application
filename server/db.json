@@ -17,6 +17,15 @@
       "hour": "12pm",
       "cost": "45$",
       "aforo": "350"
+    },
+    {
+      "img": "https://www.anayainfantilyjuvenil.com/images/libros/grande/9788469833728-la-vida-es-sueno-clasicos-hispanicos.jpg",
+      "name": "Raul",
+      "date": "2023-05-24T05:00:00.000Z",
+      "cost": "20$",
+      "description": "asfasfaf",
+      "aforo": "500",
+      "id": 3
     }
   ],
   "users": [

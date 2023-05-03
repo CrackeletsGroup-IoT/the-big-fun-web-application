@@ -6,4 +6,5 @@ export interface Event {
   hour: string;
   cost: string;
   aforo: string;
+  description:string;
 }

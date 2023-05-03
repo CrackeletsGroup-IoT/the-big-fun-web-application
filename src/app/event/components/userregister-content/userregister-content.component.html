@@ -50,7 +50,6 @@
               <mat-label>Enter your email</mat-label>
               <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
                      [(ngModel)]="user.email" name="email">
-              <mat-hint class="errores">Errors appear instantly!</mat-hint>
               <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')" class="errores">
                 Please enter a valid email address
               </mat-error>
