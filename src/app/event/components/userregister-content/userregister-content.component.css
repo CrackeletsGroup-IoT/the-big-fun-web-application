@@ -26,13 +26,12 @@ div{
 .rights{
   display: flex;
   align-items: center;
-  margin-left: 20px;
-
+  margin-right: 100px;
 }
 
 .left{
-  margin-left: 20px;
-  margin-top: 4px;
+  margin-left: 150px;
+
 }
 
 
