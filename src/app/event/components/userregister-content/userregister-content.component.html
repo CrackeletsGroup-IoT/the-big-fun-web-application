@@ -16,7 +16,7 @@
           <form class="example-form container">
             <mat-form-field class="example-full-width">
               <mat-label>Enter your username</mat-label>
-              <input type="text" matInput placeholder="Ex. IsabellaSH">
+              <input type="text" matInput [(ngModel)]="user.username" name="userName">
             </mat-form-field>
           </form>
         </div>
@@ -26,7 +26,7 @@
           <form class="example-form container">
             <mat-form-field class="example-full-width">
               <mat-label>Enter your password</mat-label>
-              <input matInput value="">
+              <input type="text" matInput [(ngModel)]="user.password" name="password">
             </mat-form-field>
           </form>
         </div>
@@ -37,7 +37,7 @@
           <form class="example-form container">
             <mat-form-field class="example-full-width">
               <mat-label>Enter your name</mat-label>
-              <input matInput placeholder="Ex. Isabella Soriano Hupaya" value="">
+              <input type="text" matInput [(ngModel)]="user.fullname" name="fullname">
             </mat-form-field>
           </form>
         </div>
@@ -49,7 +49,7 @@
             <mat-form-field class="example-full-width">
               <mat-label>Enter your email</mat-label>
               <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                     placeholder="Ex. pat@example.com">
+                     [(ngModel)]="user.email" name="email">
               <mat-hint class="errores">Errors appear instantly!</mat-hint>
               <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')" class="errores">
                 Please enter a valid email address
@@ -67,7 +67,7 @@
           <form class="example-form container">
             <mat-form-field class="example-full-width">
               <mat-label>Enter your DNI</mat-label>
-              <input matInput placeholder="Ex. 78159858" value="">
+              <input matInput [(ngModel)]="user.doc" name="dni">
             </mat-form-field>
           </form>
         </div>
@@ -75,7 +75,7 @@
         <div>
           <div class="example-label">
             <div class="example-button-row ">
-              <button class="uptButton" mat-raised-button style="width: 200px; height: 55px; border-radius: 25px;">Sign up</button>
+              <button class="uptButton" (click)="saveUser()" mat-raised-button style="width: 200px; height: 55px; border-radius: 25px;">Sign up</button>
             </div>
           </div>
         </div>

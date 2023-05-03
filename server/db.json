@@ -19,7 +19,6 @@
       "aforo": "350"
     }
   ],
-
   "users": [
     {
       "id": 1,
@@ -36,33 +35,8 @@
       "password": "alejotoledo",
       "doc": "17654321",
       "email": "alejotoledo@gmail.com"
-    },
-    {
-      "username": "a",
-      "password": "s",
-      "fullname": "d",
-      "email": "f",
-      "doc": "3",
-      "id": 3
-    },
-    {
-      "username": "a",
-      "password": "s",
-      "fullname": "f",
-      "email": "d",
-      "doc": "1234",
-      "id": 4
-    },
-    {
-      "username": "asf",
-      "password": "asdf",
-      "fullname": "asdf",
-      "email": "asf",
-      "doc": "2134124",
-      "id": 5
     }
   ],
-
   "organizers": [
     {
       "id": 1,
@@ -74,8 +48,7 @@
       "phone": "999563680",
       "namecompany": "Stoza",
       "ruc": "20 50364496 8",
-      "adresscompany":" Calle José Ortega y Gasset, 40 - loc."
+      "adresscompany": " Calle José Ortega y Gasset, 40 - loc."
     }
-
   ]
 }
