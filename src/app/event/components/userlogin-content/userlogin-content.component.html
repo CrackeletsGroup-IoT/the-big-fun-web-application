@@ -30,6 +30,15 @@
         </form>
       </div>
 
+      <h4>Basic mat-select</h4>
+      <mat-form-field>
+        <mat-label>User Type</mat-label>
+        <mat-select [(ngModel)]="userSelected">
+          <mat-option *ngFor="let user of typeusers" [value]="user.value">
+            {{user.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <div class="footer2" >
         <div>
           <div class="example-label">

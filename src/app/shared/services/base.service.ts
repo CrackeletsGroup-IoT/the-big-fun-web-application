@@ -117,4 +117,17 @@ export class BaseService <T> {
       })
     );
   }
+  getAttendeeById(attendeeId: number): Observable<any>{
+    const url = `http://localhost:8080/api/v1/attendees/${attendeeId}`;
+
+    return this.http.get(url).pipe(
+      tap(response => {
+        console.log('show attendee', response);
+      }),
+      catchError(error => {
+        console.error('error to get attendee', error);
+        return throwError('Error');
+      })
+    );
+  }
 }
