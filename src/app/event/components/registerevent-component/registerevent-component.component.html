@@ -10,7 +10,11 @@
         <mat-label>Name Event</mat-label>
         <input matInput [(ngModel)]="event.name">
       </mat-form-field>
-      <br>
+      <mat-form-field class="inputText">
+        <mat-label>District</mat-label>
+        <input matInput [(ngModel)]="event.district">
+      </mat-form-field>
+
       <div class="hourdate">
         <mat-form-field class="calendar" appearance="fill">
           <mat-label>Choose a date</mat-label>
@@ -20,7 +24,7 @@
         </mat-form-field>
         <mat-form-field class="imagelink">
           <mat-label>Image</mat-label>
-          <input matInput [(ngModel)]="event.img">
+          <input matInput [(ngModel)]="event.image">
         </mat-form-field>
       </div>
       <mat-form-field class="inputText">
@@ -33,11 +37,11 @@
         <input matInput [(ngModel)]="event.cost">
       </mat-form-field>
       <mat-form-field class="textarea">
-        <textarea matInput placeholder="Event description" [(ngModel)]="event.description" rows="2"></textarea>
+        <textarea matInput placeholder="Address" [(ngModel)]="event.address" rows="2"></textarea>
       </mat-form-field>
       <mat-form-field class="maxcapacity">
         <mat-label>Max Capacity</mat-label>
-        <input matInput type="text" [(ngModel)]="event.aforo">
+        <input matInput type="text" [(ngModel)]="event.capacity">
       </mat-form-field>
       <button (click)="saveEvent()" mat-button class="button">Register event</button>
 

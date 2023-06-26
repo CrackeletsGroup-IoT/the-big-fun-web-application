@@ -36,6 +36,25 @@
       "description": "Concert at San Marcos Stadium",
       "aforo": "600",
       "id": 4
+    },
+    {
+      "name": "The big pruch",
+      "date": "2023-05-20T05:00:00.000Z",
+      "img": "https://eventplanning24x7.files.wordpress.com/2018/04/events.png",
+      "hour": "3pm",
+      "cost": "200",
+      "description": "Es un concierto de benficiencia con tematica cristiana",
+      "aforo": "500",
+      "id": 5
+    },
+    {
+      "name": "Fiesta ",
+      "aforo": "sas",
+      "description": "asa",
+      "cost": "122",
+      "hour": "12",
+      "date": "2023-06-14T05:00:00.000Z",
+      "id": 6
     }
   ],
   "users": [

@@ -9,55 +9,68 @@ import {EventsService} from "../../services/events.service";
 })
 export class HomeContentComponent implements OnInit {
 
-  //events =[]  // esto da error
   events=<any> [];
-
-  /*
-  En un inicio lo declare mal y me daba error
-  tener cuidado,
-  otra forma de declarar un array es  events:Array<any> =[];
-  */
-
-    /*
-    {
-      name : 'Chatarrita',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqx5gurXNgoiEx8PNnw-AJm7bJz3F1-TLpgA&usqp=CAU'
-    },
-    {
-      name: "Japanese expressions",
-      img: 'https://www.curriculumnacional.cl/estudiante/621/articles-144873_imagen_portada.thumb_iCuadrada.jpg'
-    },
-    {
-      name: 'Algo Inutil',
-      img: 'https://www.cultura.gob.ar/media/uploads/algo_inutil_redes_2023_cuadrada.png'
-    },
-    {
-      name: 'Algo Inutil',
-      img: 'https://www.cultura.gob.ar/media/uploads/algo_inutil_redes_2023_cuadrada.png'
-    },
-    {
-      name: 'Algo Inutil',
-      img: 'https://www.cultura.gob.ar/media/uploads/algo_inutil_redes_2023_cuadrada.png'
-    },
-    {
-      name: 'Algo Inutil',
-      img: 'https://www.cultura.gob.ar/media/uploads/algo_inutil_redes_2023_cuadrada.png'
-    }*/
-
 
   constructor(private eventService:EventsService) {  }
 
   ngOnInit(): void {
     this.getAllEvents();
+    this.addAttendeeToEvent();
+    this.addEventToOrganizer();
+    this.addPaymentToEvent();
   }
 
   getAllEvents() {
-    this.eventService.getAll().subscribe((response:any)=>{
-      this.events=response;
-      console.log(this.events)
-    })
+    this.eventService.getAll().subscribe((response: any) => {
+      if (Array.isArray(response.content)) {
+        this.events = response.content;
+        console.log(this.events);
+      } else {
+        console.error('Invalid response format: events array not found');
+      }
+    });
   }
-
-
+  addAttendeeToEvent(){
+    const eventId = 3;
+    const attendeeId = 1;
+    this.eventService.addAttendeeToEvent(eventId, attendeeId).subscribe(
+      () => {
+        // Handle the success case if necessary
+        console.log("Attendee was added correctly");
+      },
+      (error: any) => {
+        // Handle the error if it occurs
+        console.error(error);
+      }
+    );
+  }
+  addEventToOrganizer(){
+    const eventId = 3;
+    const organizerId = 1;
+    this.eventService.addEventToOrganizer(organizerId, eventId).subscribe(
+      () => {
+        // Handle the success case if necessary
+        console.log("Organizer was added correctly");
+      },
+      (error: any) => {
+        // Handle the error if it occurs
+        console.error(error);
+      }
+    );
+  }
+  addPaymentToEvent(){
+    const eventId = 3;
+    const paymentId = 1;
+    this.eventService.addPayamentToEvent(paymentId, eventId).subscribe(
+      () => {
+        // Handle the success case if necessary
+        console.log("Organizer was added correctly");
+      },
+      (error: any) => {
+        // Handle the error if it occurs
+        console.error(error);
+      }
+    );
+  }
 
 }

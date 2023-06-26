@@ -1,9 +1,9 @@
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError, Observable, retry, throwError} from "rxjs";
+import {catchError, Observable, retry, tap, throwError} from "rxjs";
 
 export class BaseService <T> {
 
-  basePath='http://localhost:3000/api/v1/resources'
+  basePath='http://localhost:8080/api/v1'
 
   httpOptions={
     headers:new HttpHeaders({'Content-type': 'application/json',})
@@ -48,5 +48,73 @@ export class BaseService <T> {
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+  addAttendeeToEvent(eventId: number, attendeeId: number): Observable<any> {
+    const url = `http://localhost:8080/api/v1/eventsto/${eventId}/attendee/${attendeeId}`;
 
+    return this.http.post(url, {}).pipe(
+      tap(response => {
+        // Manejar la respuesta exitosa
+        console.log('Attendee añadido correctamente', response);
+      }),
+      catchError(error => {
+        // Manejar el error
+        console.error('Error al añadir el attendee', error);
+        return throwError('Error al añadir el attendee');
+      })
+    );
+  }
+  addEventToOrganizer(organizerId: number, eventId: number): Observable<any> {
+    const url = `http://localhost:8080/api/v1/organizersto/${organizerId}/events/${eventId}`;
+
+    return this.http.post(url, {}).pipe(
+      tap(response => {
+        // Manejar la respuesta exitosa
+        console.log('Attendee añadido correctamente', response);
+      }),
+      catchError(error => {
+        // Manejar el error
+        console.error('Error al añadir el attendee', error);
+        return throwError('Error al añadir el attendee');
+      })
+    );
+  }
+  addPayamentToEvent(paymentId: number, eventId: number): Observable<any> {
+    const url = `http://localhost:8080/api/v1/eventsp/${eventId}/payments/${paymentId}`;
+
+    return this.http.post(url, {}).pipe(
+      tap(response => {
+        console.log('payment añadido correctamente', response);
+      }),
+      catchError(error => {
+        console.error('Error al añadir el attendee', error);
+        return throwError('Error adding payment');
+      })
+    );
+  }
+  getEventsInOrganizers(organizerId: number): Observable<any> {
+    const url = `http://localhost:8080/api/v1/organizersto/${organizerId}/events`;
+
+    return this.http.get(url).pipe(
+      tap(response => {
+        console.log('show events', response);
+      }),
+      catchError(error => {
+        console.error('error to get events', error);
+        return throwError('Error');
+      })
+    );
+  }
+  getEventsInAttendee(attendeeId: number): Observable<any> {
+    const url = `http://localhost:8080/api/v1/eventsto/attendees/${attendeeId}`;
+
+    return this.http.get(url).pipe(
+      tap(response => {
+        console.log('show events with ids', response);
+      }),
+      catchError(error => {
+        console.error('error to get events', error);
+        return throwError('Error');
+      })
+    );
+  }
 }

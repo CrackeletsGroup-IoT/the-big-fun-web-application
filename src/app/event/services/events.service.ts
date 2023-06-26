@@ -10,6 +10,8 @@ export class EventsService extends BaseService<Event>{
 
   constructor(http:HttpClient) {
     super(http);
-    this.basePath='http://localhost:3000/api/v1/events';
+    this.basePath='http://localhost:8080/api/v1/events';
   }
+
+
 }

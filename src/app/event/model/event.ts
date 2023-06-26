@@ -1,10 +1,11 @@
 export interface Event {
   id: number;
   name: string;
-  img: string;
+  image: string;
   date: string;
   hour: string;
-  cost: string;
-  aforo: string;
-  description:string;
+  cost: number;
+  capacity: number;
+  address:string;
+  district:string;
 }

@@ -5,15 +5,12 @@
     <h1>AVAILABLE EVENTS</h1>
   </div>
   <div class="totalContent">
-    <div *ngFor="let event of events; let i=index" class="eventsContainer">
+
+    <div *ngFor="let event of eventsFiltered; let i=index" class="eventsContainer" >
       <table mat-table [dataSource]="[event]" style="border: 3px solid rgba(3, 83, 151, 1); width:1000px">
         <ng-container matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef>Date</th>
           <td mat-cell *matCellDef="let element">{{ element.date }}</td>
-        </ng-container>
-        <ng-container matColumnDef="hour">
-          <th mat-header-cell *matHeaderCellDef>Hour</th>
-          <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
         </ng-container>
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef>Event Name</th>
@@ -23,9 +20,9 @@
           <th mat-header-cell *matHeaderCellDef>Price</th>
           <td mat-cell *matCellDef="let element">{{ element.cost }}</td>
         </ng-container>
-        <ng-container matColumnDef="aforo">
+        <ng-container matColumnDef="capacity">
           <th mat-header-cell *matHeaderCellDef>Capacity</th>
-          <td mat-cell *matCellDef="let element">{{ element.aforo }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.capacity }}</td>
         </ng-container>
 
         <ng-container matColumnDef="details">
@@ -38,8 +35,8 @@
           </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="['date', 'hour', 'name', 'cost', 'aforo', 'details']"></tr>
-        <tr mat-row *matRowDef="let row; columns: ['date', 'hour', 'name', 'cost', 'aforo', 'details']"></tr>
+        <tr mat-header-row *matHeaderRowDef="['date', 'name', 'cost', 'capacity', 'details']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['date', 'name', 'cost', 'capacity', 'details']"></tr>
       </table>
     </div>
 

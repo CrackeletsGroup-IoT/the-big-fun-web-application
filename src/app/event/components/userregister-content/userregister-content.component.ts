@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import {User} from "../../model/user";
 import {UsersService} from "../../services/users.service";
+import {Organizer} from "../../model/organizer";
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -25,15 +25,19 @@ export class UserregisterContentComponent {
 
   matcher = new MyErrorStateMatcher();
 
-  user= {} as User
-
+  user= {} as Organizer
+  users = <any> []
   constructor(private userService:UsersService) {  }
 
   saveUser(){
     this.userService.create(this.user).subscribe();
     console.log("Object : ", this.user)
-    this.user={} as User
-
+    this.user={} as Organizer
+    const userId = this.user.id.toString();
+    localStorage.setItem('userId', userId);
+    console.log("Id saved : ", userId)
   }
+
+
 
 }

@@ -12,7 +12,7 @@ import {isEmpty} from "rxjs";
 export class EventdetailsComponentComponent implements  OnInit{
 
 
-  constructor(private routert:Router,private route:ActivatedRoute, private eventService:EventsService) {
+  constructor(private router:Router,private route:ActivatedRoute, private eventService:EventsService) {
   }
 
   nameEvent= "Chatarrita"
@@ -33,23 +33,24 @@ export class EventdetailsComponentComponent implements  OnInit{
     this.indice=this.route.snapshot.params['index'];
     console.log(this.indice)
     this.getAllEvents();
-    //this.findById(this.indice)
-    //console.log("Currentttt : ", this.currentEvent)
-    //this.currentEvent = this.findById(this.indice)
-    //console.log(" Current Event : ", this.currentEvent)
-    //console.log("segundo ",this.events)
+
   }
 
   getAllEvents() {
-    this.eventService.getAll().subscribe((response:any)=>{
-      this.events=response;
-      this.findById(this.indice)
-      console.log(this.currentEvent)
-    })
+    this.eventService.getAll().subscribe((response: any) => {
+      if (Array.isArray(response.content)) {
+        this.events = response.content;
+        console.log(this.events);
+      } else {
+        console.error('Invalid response format: events array not found');
+      }
+    });
   }
 
   findById(index:number){
     this.currentEvent = this.events[index]
+    localStorage.setItem('eventId', this.currentEvent.id.toString());
+    console.log("id del evento", localStorage.getItem('eventId'));
   }
 
   buy(){
