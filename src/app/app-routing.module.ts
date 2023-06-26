@@ -12,16 +12,18 @@ import {FaqContentComponent} from "./event/components/faq-content/faq-content.co
 import {
   EventdetailsComponentComponent
 } from "./event/components/eventdetails-component/eventdetails-component.component";
+import {UserloginContentComponent} from "./event/components/userlogin-content/userlogin-content.component";
 
 
 const routes:Routes=[
-  { path: '', component: HomeContentComponent },
+  { path: '', component: UserloginContentComponent },
   { path: 'home', component: HomeContentComponent },
   { path: 'aboutUs', component: AboutusContentComponent },
   { path: 'events', component: ViewEventsContentComponent },
   { path: 'signUp', component: UserregisterContentComponent },
   { path: 'eventRegister', component: RegistereventComponentComponent },
   { path: 'faqs', component: FaqContentComponent },
+  {path: 'SignIn', component: UserloginContentComponent},
   { path: 'eventDetail/:index', component: EventdetailsComponentComponent },
 ];
 
