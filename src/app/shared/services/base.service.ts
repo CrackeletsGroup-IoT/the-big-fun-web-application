@@ -130,4 +130,9 @@ export class BaseService <T> {
       })
     );
   }
+
+  addUser(item: any) {
+    return this.http.post<T>('http://localhost:8080/api/v1/userss/auth/sign-up', JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }

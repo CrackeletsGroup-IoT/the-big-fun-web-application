@@ -5,8 +5,12 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import {UsersService} from "../../services/users.service";
 import {Organizer} from "../../model/organizer";
+import {User} from "../../model/user";
+interface type {
+  value: string;
+  viewValue: string;
+}
 
-/** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -20,24 +24,32 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class UserregisterContentComponent {
-
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  userSelected='';
+  typeusers: type[] = [
+    {value: 'Organizer', viewValue: 'Organizer'},
+    {value: 'Attendee', viewValue: 'Attendee'}
+  ];
+    emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   matcher = new MyErrorStateMatcher();
 
-  user= {} as Organizer
+  user= {} as User
+
   users = <any> []
   constructor(private userService:UsersService) {  }
-
-  saveUser(){
-    this.userService.create(this.user).subscribe();
-    console.log("Object : ", this.user)
-    this.user={} as Organizer
-    const userId = this.user.id.toString();
-    localStorage.setItem('userId', userId);
-    console.log("Id saved : ", userId)
+  createUser(){
+    this.saveUser();
+    this.addrole();
   }
+  saveUser(){
+    this.userService.addUser(this.user).subscribe(() => {
+      console.log("Object:", this.user);
 
-
+      this.user = {} as User;
+    });
+  }
+  addrole(){
+    this.user.role=["ROLE_USER"];
+  }
 
 }

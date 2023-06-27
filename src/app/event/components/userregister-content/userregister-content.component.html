@@ -16,12 +16,11 @@
           <form class="example-form container">
             <mat-form-field class="example-full-width">
               <mat-label>Enter your username</mat-label>
-              <input type="text" matInput [(ngModel)]="user.userName" name="userName">
+              <input type="text" matInput [(ngModel)]="user.username" name="userName">
             </mat-form-field>
           </form>
         </div>
-
-       <!-- <div class="flex flex-column gap-2 ">
+        <div class="flex flex-column gap-2 ">
           <label class="title" >Password</label>
           <form class="example-form container">
             <mat-form-field class="example-full-width">
@@ -29,18 +28,9 @@
               <input type="text" matInput [(ngModel)]="user.password" name="password">
             </mat-form-field>
           </form>
-        </div>-->
-
-
-        <div class="flex flex-column gap-2 ">
-          <label class="title" >Name</label>
-          <form class="example-form container">
-            <mat-form-field class="example-full-width">
-              <mat-label>Enter your name</mat-label>
-              <input type="text" matInput [(ngModel)]="user.name" name="fullname">
-            </mat-form-field>
-          </form>
         </div>
+
+
 
         <div class="flex flex-column gap-2 ">
           <label class="title" >Email</label>
@@ -61,20 +51,11 @@
 
         </div>
 
-        <!--<div class="flex flex-column gap-2 ">
-          <label class="title" >DNI</label>
-          <form class="example-form container">
-            <mat-form-field class="example-full-width">
-              <mat-label>Enter your DNI</mat-label>
-              <input matInput [(ngModel)]="user.doc" name="dni">
-            </mat-form-field>
-          </form>
-        </div>-->
 
         <div>
           <div class="example-label">
             <div class="example-button-row ">
-              <button class="uptButton" (click)="saveUser()" mat-raised-button style="width: 200px; height: 55px; border-radius: 25px;">Sign up</button>
+              <button class="uptButton" (click)="createUser()" mat-raised-button style="width: 200px; height: 55px; border-radius: 25px;">Sign up</button>
             </div>
           </div>
         </div>
