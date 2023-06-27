@@ -8,7 +8,7 @@
     <a routerLink="/aboutUs" mat-button>About Us</a>
 
     <ng-container *ngIf="isLoggedIn">
-      <ng-container *ngIf="userType === 'attendee'">
+      <ng-container *ngIf="userType === 'ROLE_USER'">
         <a routerLink="/events" mat-button>Events</a>
         <button mat-button (click)="logout()">LogOut</button>
         <a routerLink="/userProfile" mat-button>Profile</a>

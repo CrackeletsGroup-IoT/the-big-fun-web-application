@@ -144,4 +144,5 @@ export class BaseService <T> {
     return this.http.post<T>('http://localhost:8080/api/v1/organizers', JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
 }

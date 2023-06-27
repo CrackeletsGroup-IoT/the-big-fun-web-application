@@ -17,6 +17,7 @@ export class NavComponent implements OnInit{
     this.userType = ''
     this.router.navigate(['/signIn']);
     localStorage.removeItem('role');
+    localStorage.removeItem('userId');
   }
   ngOnInit() {
     interval(1000).subscribe(() => {

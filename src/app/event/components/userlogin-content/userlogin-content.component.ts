@@ -41,7 +41,10 @@ export class UserloginContentComponent {
         console.log("Respuesta de autenticación:", response);
         this.userResponse = response as User;
         localStorage.setItem('role', this.userResponse.roles[0]);
+        localStorage.setItem('userId',String(this.userResponse.id));
         console.log(localStorage.getItem('role'));
+        console.log(localStorage.getItem('userId'));
+        
         this.router.navigate(['/home']);
       },
       error => {
