@@ -38,6 +38,7 @@ export class UserloginContentComponent {
 
     this.eventService.authenticateUser(this.authUser).subscribe(response => {
         console.log("Respuesta de autenticación:", response);
+
         this.router.navigate(['/home']);
       },
       error => {
@@ -45,4 +46,5 @@ export class UserloginContentComponent {
         alert("User or Password incorrect");
       });
   }
+
 }

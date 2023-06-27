@@ -140,4 +140,8 @@ export class BaseService <T> {
     return this.http.post<T>('http://localhost:8080/api/v1/userss/auth/sign-in', JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+  createOrganizer(item:any): Observable<any> {
+    return this.http.post<T>('http://localhost:8080/api/v1/organizers', JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }

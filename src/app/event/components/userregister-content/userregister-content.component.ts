@@ -7,6 +7,7 @@ import {UsersService} from "../../services/users.service";
 import {Organizer} from "../../model/organizer";
 import {User} from "../../model/user";
 import {Router} from "@angular/router";
+import {OrganizerService} from "../../services/organizer.service";
 interface type {
   value: string;
   viewValue: string;
@@ -36,8 +37,14 @@ export class UserregisterContentComponent {
 
   user= {} as User
 
+  organizer={
+    userName:'',
+    name:'',
+    password: ''
+  }
+
   users = <any> []
-  constructor(private userService:UsersService,private router: Router) {  }
+  constructor(private userService:UsersService,private router: Router, private organizerService:OrganizerService) {  }
   createUser(){
     this.addRole();
     this.saveUser();
@@ -46,13 +53,24 @@ export class UserregisterContentComponent {
   saveUser(){
     this.userService.addUser(this.user).subscribe(() => {
       console.log("Object:", this.user);
-
       this.user = {} as User;
-
+      this.createOrgnizer();
     });
   }
   addRole(){
     this.user.roles=[this.userSelected.toString()];
   }
-
+  createOrgnizer(){
+    this.organizer.userName= this.user.username;
+    this.organizer.name= this.user.username;
+    this.organizer.password= this.user.password;
+    this.organizerService.createOrganizer(this.organizer).subscribe(response => {
+        console.log("initialobject:", this.organizer)
+        console.log("organizer:", response);
+      },
+      error => {
+        console.error("Error create organizer:", error);
+        alert("error to create organizer");
+      });
+  }
 }

@@ -11,7 +11,7 @@ export class OrganizerService extends BaseService<Organizer>{
   constructor(http:HttpClient) {
 
     super(http);
-    this.basePath='http://localhost:3000/api/v1/organizers';
+    this.basePath='http://localhost:8080/api/v1/organizers';
   }
 
 }
