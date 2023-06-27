@@ -53,7 +53,12 @@ export class UserregisterContentComponent {
   saveUser(){
     this.userService.addUser(this.user).subscribe(() => {
       console.log("Object:", this.user);
-      this.createOrgnizer();
+      if (this.userSelected== 'ROLE_ORGANIZER'){
+        this.createOrgnizer();
+      }else{
+        this.createAttendee();
+      }
+
       this.user = {} as User;
 
     });
@@ -74,6 +79,20 @@ export class UserregisterContentComponent {
       error => {
         console.error("Error create organizer:", error);
         alert("error to create organizer");
+      });
+  }
+  createAttendee(){
+    this.organizer.userName= this.user.username;
+    this.organizer.name= this.user.username;
+    this.organizer.email= this.user.email;
+    console.log("organizer", this.organizer);
+    this.organizerService.createAttendee(this.organizer).subscribe(response => {
+        console.log("initialobject:", this.organizer)
+        console.log("organizer:", response);
+      },
+      error => {
+        console.error("Error create attedee:", error);
+        alert("error to create attendee");
       });
   }
 }

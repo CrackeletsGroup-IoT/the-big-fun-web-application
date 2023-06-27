@@ -16,7 +16,6 @@ export class HomeContentComponent implements OnInit {
   ngOnInit(): void {
     this.getAllEvents();
     this.addAttendeeToEvent();
-    this.addEventToOrganizer();
     this.addPaymentToEvent();
   }
 
@@ -44,20 +43,7 @@ export class HomeContentComponent implements OnInit {
       }
     );
   }
-  addEventToOrganizer(){
-    const eventId = 3;
-    const organizerId = 1;
-    this.eventService.addEventToOrganizer(organizerId, eventId).subscribe(
-      () => {
-        // Handle the success case if necessary
-        console.log("Organizer was added correctly");
-      },
-      (error: any) => {
-        // Handle the error if it occurs
-        console.error(error);
-      }
-    );
-  }
+
   addPaymentToEvent(){
     const eventId = 3;
     const paymentId = 1;
