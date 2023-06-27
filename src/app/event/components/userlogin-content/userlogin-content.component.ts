@@ -10,10 +10,10 @@ interface type {
   styleUrls: ['./userlogin-content.component.css']
 })
 export class UserloginContentComponent {
-  userSelected='';
+  userSelected='asdasdas';
   typeusers: type[] = [
-    {value: 'Organizer', viewValue: 'Organizer'},
-    {value: 'Attendee', viewValue: 'Attendee'}
+    {value: 'ROLE_ORGANIZER', viewValue: 'Organizer'},
+    {value: 'ROLE_USER', viewValue: 'Attendee'}
   ];
   users: Array<any> = [
     {

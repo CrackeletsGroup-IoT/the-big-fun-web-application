@@ -11,6 +11,6 @@ export class NavComponent {
 
   Login(){
     this.isLoggedIn = true;
-    this.userType ='attendee';
+    this.userType ='organizer';
   }
 }

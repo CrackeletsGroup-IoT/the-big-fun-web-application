@@ -26,8 +26,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class UserregisterContentComponent {
   userSelected='';
   typeusers: type[] = [
-    {value: 'Organizer', viewValue: 'Organizer'},
-    {value: 'Attendee', viewValue: 'Attendee'}
+    {value: 'ROLE_ORGANIZER', viewValue: 'Organizer'},
+    {value: 'ROLE_USER', viewValue: 'Attendee'}
   ];
     emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
@@ -38,8 +38,9 @@ export class UserregisterContentComponent {
   users = <any> []
   constructor(private userService:UsersService) {  }
   createUser(){
+    this.addRole();
     this.saveUser();
-    this.addrole();
+
   }
   saveUser(){
     this.userService.addUser(this.user).subscribe(() => {
@@ -48,8 +49,8 @@ export class UserregisterContentComponent {
       this.user = {} as User;
     });
   }
-  addrole(){
-    this.user.role=["ROLE_USER"];
+  addRole(){
+    this.user.roles=[this.userSelected.toString()];
   }
 
 }
