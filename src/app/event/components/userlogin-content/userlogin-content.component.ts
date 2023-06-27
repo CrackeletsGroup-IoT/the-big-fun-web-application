@@ -22,7 +22,7 @@ export class UserloginContentComponent {
     password: ''
 
   };
-  userResponse: Event = {  } as User;
+  userResponse= { } as User;
   constructor(private eventService:EventsService, private router: Router) { }
 
   typeusers: type[] = [
@@ -39,9 +39,9 @@ export class UserloginContentComponent {
 
     this.eventService.authenticateUser(this.authUser).subscribe(response => {
         console.log("Respuesta de autenticación:", response);
-        this.userResponse = response;
-        console.log("dksjahdask", this.userResponse);
-        localStorage.setItem('roles', userResponse.roles[1])
+        this.userResponse = response as User;
+        localStorage.setItem('role', this.userResponse.roles[0]);
+        console.log(localStorage.getItem('role'));
         this.router.navigate(['/home']);
       },
       error => {

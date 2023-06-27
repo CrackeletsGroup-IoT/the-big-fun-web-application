@@ -13,7 +13,7 @@
         <a routerLink="/events" mat-button>Events</a>
       </ng-container>
 
-      <ng-container *ngIf="userType === 'organizer'">
+      <ng-container *ngIf="userType === 'ROLE_ORGANIZER'">
         <a routerLink="/events" mat-button>Events</a>
         <a routerLink="/eventRegister" mat-button>Register Event</a>
       </ng-container>

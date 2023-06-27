@@ -136,7 +136,7 @@ export class BaseService <T> {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  authenticateUser(item: any){
+  authenticateUser(item: any): Observable<any>{
     return this.http.post<T>('http://localhost:8080/api/v1/userss/auth/sign-in', JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

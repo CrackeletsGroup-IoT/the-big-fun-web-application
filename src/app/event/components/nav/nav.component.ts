@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class NavComponent {
   isLoggedIn: boolean = false;
   userType: string = '';
-
+  role=localStorage.getItem('role')
   Login(){
     this.isLoggedIn = true;
-    this.userType ='organizer';
+    this.userType =  this.role.toString();
   }
 }
