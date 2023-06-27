@@ -22,22 +22,27 @@ export class RegistereventComponentComponent {
   constructor(private eventService:EventsService) { }
 
   saveEvent(){
-    this.eventService.create(this.event).subscribe(response => {
+    this.eventService.create(this.event).subscribe(
+      response => {
         console.log("Respuesta del evento creado:", response);
+        this.eventId = response.id;
+        console.log("ID del evento creado:", this.eventId);
+        this.addEventToOrganizer()
       },
       error => {
         console.error("Error al crear el evento:", error);
-      });
+      }
+    );
     console.log("Evento : ",this.event)
     this.event={} as Event;
+
   }
   addEventToOrganizer(){
-    const eventId = (localStorage.getItem('userId'));
     const organizerId = (localStorage.getItem('userId'));
-    this.eventService.addEventToOrganizer(Number(organizerId), Number(eventId)).subscribe(
+    this.eventService.addEventToOrganizer(Number(organizerId), Number(this.eventId)).subscribe(
       () => {
         // Handle the success case if necessary
-        console.log("Organizer was added correctly");
+        console.log("Event was added correctly");
       },
       (error: any) => {
         // Handle the error if it occurs

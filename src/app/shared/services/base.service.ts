@@ -139,6 +139,7 @@ export class BaseService <T> {
   authenticateUser(item: any): Observable<any>{
     return this.http.post<T>('http://localhost:8080/api/v1/userss/auth/sign-in', JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
+
   }
   createOrganizer(item:any): Observable<any> {
     return this.http.post<T>('http://localhost:8080/api/v1/organizers', JSON.stringify(item), this.httpOptions)
@@ -147,5 +148,31 @@ export class BaseService <T> {
   createAttendee(item:any): Observable<any>{
     return this.http.post<T>('http://localhost:8080/api/v1/attendees', JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
+  }
+  findAttendeeByName(attendeeName: String): Observable<any> {
+    const url = `http://localhost:8080/api/v1/attendees/byname/${attendeeName}`;
+
+    return this.http.get(url).pipe(
+      tap(response => {
+        console.log('show attendee', response);
+      }),
+      catchError(error => {
+        console.error('error to get attendee', error);
+        return throwError('Error');
+      })
+    );
+  }
+  findOrganizerByName(organizerName: String): Observable<any> {
+    const url = `http://localhost:8080/api/v1/organizers/byname/${organizerName}`;
+
+    return this.http.get(url).pipe(
+      tap(response => {
+        console.log('show organizer', response);
+      }),
+      catchError(error => {
+        console.error('error to get organizer', error);
+        return throwError('Error');
+      })
+    );
   }
 }
