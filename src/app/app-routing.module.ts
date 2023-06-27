@@ -14,6 +14,9 @@ import {
 } from "./event/components/eventdetails-component/eventdetails-component.component";
 import {UserloginContentComponent} from "./event/components/userlogin-content/userlogin-content.component";
 import {UserProfileContentComponent} from "./event/components/user-profile-content/user-profile-content.component";
+import {
+  UpdateProfileContentComponent
+} from "./event/components/update-profile-content/update-profile-content.component";
 
 
 const routes:Routes=[
@@ -26,6 +29,7 @@ const routes:Routes=[
   { path: 'faqs', component: FaqContentComponent },
   {path: 'signIn', component: UserloginContentComponent},
   {path: 'userProfile', component: UserProfileContentComponent},
+  {path: 'updateProfile', component: UpdateProfileContentComponent},
   { path: 'eventDetail/:index', component: EventdetailsComponentComponent },
 ];
 

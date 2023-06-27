@@ -5,20 +5,21 @@
   margin-top: 150px;
 }
 
-.title h1 {
-  position: absolute;
+.header {
   top: 0;
   left: 0;
-  width: 699px;
-  height: 94px;
+
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header h1{
   font-family: 'Nunito', sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 38px;
+  font-size: 50px;
   line-height: 57px;
   color: rgba(83, 16, 92, 0.96);
-  margin-top: 100px;
-  margin-left: 200px;
 }
 
 .container {
@@ -44,14 +45,7 @@
   color: #53105c;
 
 }
-.uptButton {
-  width: 355px;
-  height: 80px;
-  color: #ffffff;
-  border-radius: 50px;
-  background-color: white;
-  border: 1px solid #53105c;
-}
+
 .content {
   display: flex;
   align-items: center;
