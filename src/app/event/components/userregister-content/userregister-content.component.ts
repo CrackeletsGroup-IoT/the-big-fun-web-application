@@ -6,6 +6,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {UsersService} from "../../services/users.service";
 import {Organizer} from "../../model/organizer";
 import {User} from "../../model/user";
+import {Router} from "@angular/router";
 interface type {
   value: string;
   viewValue: string;
@@ -36,17 +37,18 @@ export class UserregisterContentComponent {
   user= {} as User
 
   users = <any> []
-  constructor(private userService:UsersService) {  }
+  constructor(private userService:UsersService,private router: Router) {  }
   createUser(){
     this.addRole();
     this.saveUser();
-
+    this.router.navigate(['/signIn']);
   }
   saveUser(){
     this.userService.addUser(this.user).subscribe(() => {
       console.log("Object:", this.user);
 
       this.user = {} as User;
+
     });
   }
   addRole(){

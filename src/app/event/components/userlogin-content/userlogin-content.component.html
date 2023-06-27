@@ -15,7 +15,7 @@
         <form class="example-form">
           <mat-form-field class="example-full-width">
             <mat-label>Enter your username</mat-label>
-            <input matInput placeholder="Ex. IsabellaSH" value="{{authUser.username}}">
+            <input matInput placeholder="Ex. IsabellaSH" [(ngModel)]="authUser.username" name="username">
           </mat-form-field>
         </form>
       </div>
@@ -25,19 +25,12 @@
         <form class="example-form">
           <mat-form-field class="example-full-width">
             <mat-label>Enter your password</mat-label>
-            <input matInput value="{{authUser.password}}">
+            <input matInput [(ngModel)]="authUser.password" name="password">
           </mat-form-field>
         </form>
       </div>
 
-      <mat-form-field>
-        <mat-label>User Type</mat-label>
-        <mat-select [(ngModel)]="userSelected">
-          <mat-option *ngFor="let user of typeusers" [value]="user.value">
-            {{user.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+
 
       <div class="footer2" >
         <div>
