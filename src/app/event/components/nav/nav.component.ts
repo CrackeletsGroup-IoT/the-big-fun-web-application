@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
+  isLoggedIn: boolean = false;
+  userType: string = '';
 
+  Login(){
+    this.isLoggedIn = true;
+    this.userType ='attendee';
+  }
 }
