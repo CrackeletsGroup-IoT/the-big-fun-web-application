@@ -3,6 +3,7 @@ import {Event} from "../../model/event";
 import {EventsService} from "../../services/events.service";
 import {AuthUser} from "../../model/AuthUser";
 import {Router} from "@angular/router";
+import {User} from "../../model/user";
 interface type {
   value: string;
   viewValue: string;
@@ -21,7 +22,7 @@ export class UserloginContentComponent {
     password: ''
 
   };
-
+  userResponse: Event = {  } as User;
   constructor(private eventService:EventsService, private router: Router) { }
 
   typeusers: type[] = [
@@ -38,7 +39,9 @@ export class UserloginContentComponent {
 
     this.eventService.authenticateUser(this.authUser).subscribe(response => {
         console.log("Respuesta de autenticación:", response);
-
+        this.userResponse = response;
+        console.log("dksjahdask", this.userResponse);
+        localStorage.setItem('roles', userResponse.roles[1])
         this.router.navigate(['/home']);
       },
       error => {

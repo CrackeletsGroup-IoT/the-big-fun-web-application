@@ -40,7 +40,7 @@ export class UserregisterContentComponent {
   organizer={
     userName:'',
     name:'',
-    password: ''
+    email: ''
   }
 
   users = <any> []
@@ -53,9 +53,11 @@ export class UserregisterContentComponent {
   saveUser(){
     this.userService.addUser(this.user).subscribe(() => {
       console.log("Object:", this.user);
-      this.user = {} as User;
       this.createOrgnizer();
+      this.user = {} as User;
+
     });
+
   }
   addRole(){
     this.user.roles=[this.userSelected.toString()];
@@ -63,7 +65,8 @@ export class UserregisterContentComponent {
   createOrgnizer(){
     this.organizer.userName= this.user.username;
     this.organizer.name= this.user.username;
-    this.organizer.password= this.user.password;
+    this.organizer.email= this.user.email;
+    console.log("organizer", this.organizer);
     this.organizerService.createOrganizer(this.organizer).subscribe(response => {
         console.log("initialobject:", this.organizer)
         console.log("organizer:", response);
