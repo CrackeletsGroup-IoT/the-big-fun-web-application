@@ -20,6 +20,17 @@
             </mat-form-field>
           </form>
         </div>
+
+        <div class="flex flex-column gap-2 ">
+          <label class="title" >Name</label>
+          <form class="example-form container">
+            <mat-form-field class="example-full-width">
+              <mat-label>Enter your name </mat-label>
+              <input type="text" matInput [(ngModel)]="name" name="name">
+            </mat-form-field>
+          </form>
+        </div>
+
         <div class="flex flex-column gap-2 ">
           <label class="title" >Password</label>
           <form class="example-form container">

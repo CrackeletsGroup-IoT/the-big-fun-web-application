@@ -3,11 +3,13 @@ import { Component } from '@angular/core';
 
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import {UsersService} from "../../services/users.service";
+import {AttendeeService} from "../../services/attendee.service";
 import {Organizer} from "../../model/organizer";
-import {User} from "../../model/user";
+import {Attendee} from "../../model/attendee";
 import {Router} from "@angular/router";
 import {OrganizerService} from "../../services/organizer.service";
+import {UserSignUp} from "../../model/userSignUp";
+import {AutorizationService} from "../../services/autorization.service";
 interface type {
   value: string;
   viewValue: string;
@@ -35,45 +37,52 @@ export class UserregisterContentComponent {
 
   matcher = new MyErrorStateMatcher();
 
-  user= {} as User
+  constructor(
+    private attendeeService:AttendeeService,
+    private router: Router,
+    private organizerService:OrganizerService,
+    private autorizationService: AutorizationService) {
 
-  organizer={
-    userName:'',
-    name:'',
-    email: ''
+    this.user={} as UserSignUp;
+    this.name='';
   }
+  name:string;
+  user:UserSignUp;
 
-  users = <any> []
-  constructor(private userService:UsersService,private router: Router, private organizerService:OrganizerService) {  }
+
   createUser(){
     this.addRole();
     this.saveUser();
     this.router.navigate(['/signIn']);
   }
+
+  //se creo el usuario usando el metodo post(signUp) del servicio Autorization
   saveUser(){
-    this.userService.addUser(this.user).subscribe(() => {
+    this.autorizationService.signUp(this.user).subscribe(() => {
       console.log("Object:", this.user);
-      if (this.userSelected== 'ROLE_ORGANIZER'){
-        this.createOrgnizer();
+      if (this.userSelected=== 'ROLE_ORGANIZER'){
+        this.createOrganizer();
       }else{
         this.createAttendee();
       }
-
-      this.user = {} as User;
-
+      this.user = {} as UserSignUp;
     });
-
   }
+
   addRole(){
     this.user.roles=[this.userSelected.toString()];
   }
-  createOrgnizer(){
-    this.organizer.userName= this.user.username;
-    this.organizer.name= this.user.username;
-    this.organizer.email= this.user.email;
-    console.log("organizer", this.organizer);
-    this.organizerService.createOrganizer(this.organizer).subscribe(response => {
-        console.log("initialobject:", this.organizer)
+
+  //se creo el organizer usando el metodo post(template) de baseService, el cual va al endpoint especifico de organizer
+  createOrganizer(){
+
+    let organizer:Organizer={
+      id:0, userName:this.user.username, name:this.name, email: this.user.email
+    };
+
+    console.log("organizer", organizer);
+    this.organizerService.create(organizer).subscribe(response => {
+        console.log("initialObject:", organizer)
         console.log("organizer:", response);
       },
       error => {
@@ -81,17 +90,21 @@ export class UserregisterContentComponent {
         alert("error to create organizer");
       });
   }
+
+  //se creo el attendee usando el metodo post(template) de baseService, el cual va al endpoint especifico de attendee
   createAttendee(){
-    this.organizer.userName= this.user.username;
-    this.organizer.name= this.user.username;
-    this.organizer.email= this.user.email;
-    console.log("organizer", this.organizer);
-    this.organizerService.createAttendee(this.organizer).subscribe(response => {
-        console.log("initialobject:", this.organizer)
-        console.log("organizer:", response);
+
+    let attendee:Attendee={
+      id:0, userName:this.user.username, name:this.name, email: this.user.email
+    };
+
+    console.log("attendee", attendee);
+    this.attendeeService.create(attendee).subscribe(response => {
+        console.log("initialObject:", attendee)
+        console.log("attendee:", response);
       },
       error => {
-        console.error("Error create attedee:", error);
+        console.error("Error create attendee:", error);
         alert("error to create attendee");
       });
   }

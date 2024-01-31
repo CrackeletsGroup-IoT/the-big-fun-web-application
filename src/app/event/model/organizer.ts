@@ -3,6 +3,4 @@ export interface Organizer {
   userName: string;
   name: string;
   email: string;
-  eventsListByOrganizer: string;
-
 }

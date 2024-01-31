@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EventsService} from "../../services/events.service";
-import {User} from "../../model/user";
+import {Attendee} from "../../model/attendee";
 
 @Component({
   selector: 'app-user-profile-content',
@@ -17,7 +17,7 @@ export class UserProfileContentComponent implements OnInit{
   email="";
   phone="";
   id="";
-  currentAttendee = {} as User
+  currentAttendee = {} as Attendee
 
   constructor(private eventService: EventsService) {
   }
@@ -25,7 +25,7 @@ export class UserProfileContentComponent implements OnInit{
     this.getAttendeById();
   }
   getAttendeById(){
-    this.eventService.getAttendeeById(1).subscribe((response: any) => {
+    this.eventService.getById(1).subscribe((response: any) => {
       this.currentAttendee = response;
       console.log(this.currentAttendee);
     });
