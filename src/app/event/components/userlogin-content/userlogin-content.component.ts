@@ -37,6 +37,7 @@ export class UserloginContentComponent {
         this.userResponse = response as UserSignInResponse;
         localStorage.setItem('userId',String(this.userResponse.id));
         localStorage.setItem('username',String(this.userResponse.username));
+        localStorage.setItem('role',String(this.userResponse.roles[0]));
         localStorage.setItem('token',String(this.userResponse.token));
         console.log(localStorage.getItem('token'));
 

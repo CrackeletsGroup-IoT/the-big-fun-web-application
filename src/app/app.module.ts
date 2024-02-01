@@ -82,7 +82,7 @@ import {UserProfileContentComponent} from "./event/components/user-profile-conte
     UserregisterContentComponent,
     ViewEventsContentComponent,
     NavbarAttendeeComponent,
-    UserProfileContentComponent
+    UserProfileContentComponent,
   ],
 
   imports: [
