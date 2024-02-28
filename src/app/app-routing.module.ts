@@ -12,17 +12,27 @@ import {FaqContentComponent} from "./event/components/faq-content/faq-content.co
 import {
   EventdetailsComponentComponent
 } from "./event/components/eventdetails-component/eventdetails-component.component";
+import {UserloginContentComponent} from "./event/components/userlogin-content/userlogin-content.component";
+import {UserProfileContentComponent} from "./event/components/user-profile-content/user-profile-content.component";
+import {
+  UpdateProfileContentComponent
+} from "./event/components/update-profile-content/update-profile-content.component";
+import {AuthGuard} from "./event/services/auth.guard.service";
+import {NoAuthGuard} from "./event/services/no-auth.guard.service";
 
 
 const routes:Routes=[
-  { path: '', component: HomeContentComponent },
-  { path: 'home', component: HomeContentComponent },
+  { path: '', redirectTo: '/home', pathMatch:'full' },
+  { path: 'home', component: HomeContentComponent, canActivate:[AuthGuard], data:{requiresAuth:true} },
   { path: 'aboutUs', component: AboutusContentComponent },
-  { path: 'events', component: ViewEventsContentComponent },
-  { path: 'signUp', component: UserregisterContentComponent },
-  { path: 'eventRegister', component: RegistereventComponentComponent },
+  { path: 'events', component: ViewEventsContentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
+  { path: 'signUp', component: UserregisterContentComponent, canActivate:[NoAuthGuard]},
+  { path: 'eventRegister', component: RegistereventComponentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
   { path: 'faqs', component: FaqContentComponent },
-  { path: 'eventDetail/:index', component: EventdetailsComponentComponent },
+  {path: 'signIn', component: UserloginContentComponent , canActivate:[NoAuthGuard]},
+  {path: 'userProfile', component: UserProfileContentComponent, canActivate:[AuthGuard], data:{requiresAuth:true}},
+  {path: 'updateProfile', component: UpdateProfileContentComponent, canActivate:[AuthGuard], data:{requiresAuth:true}},
+  { path: 'eventDetail/:index', component: EventdetailsComponentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
 ];
 
 @NgModule({
@@ -34,4 +44,11 @@ const routes:Routes=[
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
+
+
+/////////////////
+//METODO PARA SABER SI EL USUARIO ESTA REGISTRADO
+
+
+
 

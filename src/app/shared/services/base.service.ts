@@ -9,7 +9,7 @@ export class BaseService <T> {
     headers:new HttpHeaders({'Content-type': 'application/json',})
   }
 
-  constructor(private http:HttpClient) { }
+  constructor(protected http:HttpClient) { }
 
   handleError(error:HttpErrorResponse){
     // Default error handling
@@ -48,6 +48,21 @@ export class BaseService <T> {
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  getById(id: any): Observable<T>{
+
+    return this.http.get<T>(this.basePath+'/'+id, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+
+
+
+
+
+
+                                           //EVENT!!!!
+
   addAttendeeToEvent(eventId: number, attendeeId: number): Observable<any> {
     const url = `http://localhost:8080/api/v1/eventsto/${eventId}/attendee/${attendeeId}`;
 
@@ -117,4 +132,6 @@ export class BaseService <T> {
       })
     );
   }
+
+
 }

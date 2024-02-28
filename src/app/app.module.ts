@@ -55,6 +55,8 @@ import {UserloginContentComponent} from "./event/components/userlogin-content/us
 import {ViewEventsContentComponent} from "./event/components/view-events-content/view-events-content.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
+import { NavbarAttendeeComponent } from './event/components/navbar-attendee/navbar-attendee.component';
+import {UserProfileContentComponent} from "./event/components/user-profile-content/user-profile-content.component";
 
 
 @NgModule({
@@ -79,6 +81,8 @@ import {RouterModule} from "@angular/router";
     UserloginContentComponent,
     UserregisterContentComponent,
     ViewEventsContentComponent,
+    NavbarAttendeeComponent,
+    UserProfileContentComponent,
   ],
 
   imports: [
