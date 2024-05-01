@@ -9,7 +9,7 @@ export class BaseService <T> {
     headers:new HttpHeaders({'Content-type': 'application/json',})
   }
 
-  constructor(private http:HttpClient) { }
+  constructor(protected http:HttpClient) { }
 
   handleError(error:HttpErrorResponse){
     // Default error handling
@@ -48,6 +48,21 @@ export class BaseService <T> {
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  getById(id: any): Observable<T>{
+
+    return this.http.get<T>(this.basePath+'/'+id, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+
+
+
+
+
+
+                                           //EVENT!!!!
+
   addAttendeeToEvent(eventId: number, attendeeId: number): Observable<any> {
     const url = `http://localhost:8080/api/v1/eventsto/${eventId}/attendee/${attendeeId}`;
 
@@ -117,62 +132,6 @@ export class BaseService <T> {
       })
     );
   }
-  getAttendeeById(attendeeId: number): Observable<any>{
-    const url = `http://localhost:8080/api/v1/attendees/${attendeeId}`;
 
-    return this.http.get(url).pipe(
-      tap(response => {
-        console.log('show attendee', response);
-      }),
-      catchError(error => {
-        console.error('error to get attendee', error);
-        return throwError('Error');
-      })
-    );
-  }
 
-  addUser(item: any) {
-    return this.http.post<T>('http://localhost:8080/api/v1/userss/auth/sign-up', JSON.stringify(item), this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
-  }
-
-  authenticateUser(item: any): Observable<any>{
-    return this.http.post<T>('http://localhost:8080/api/v1/userss/auth/sign-in', JSON.stringify(item), this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
-
-  }
-  createOrganizer(item:any): Observable<any> {
-    return this.http.post<T>('http://localhost:8080/api/v1/organizers', JSON.stringify(item), this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
-  }
-  createAttendee(item:any): Observable<any>{
-    return this.http.post<T>('http://localhost:8080/api/v1/attendees', JSON.stringify(item), this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
-  }
-  findAttendeeByName(attendeeName: String): Observable<any> {
-    const url = `http://localhost:8080/api/v1/attendees/byname/${attendeeName}`;
-
-    return this.http.get(url).pipe(
-      tap(response => {
-        console.log('show attendee', response);
-      }),
-      catchError(error => {
-        console.error('error to get attendee', error);
-        return throwError('Error');
-      })
-    );
-  }
-  findOrganizerByName(organizerName: String): Observable<any> {
-    const url = `http://localhost:8080/api/v1/organizers/byname/${organizerName}`;
-
-    return this.http.get(url).pipe(
-      tap(response => {
-        console.log('show organizer', response);
-      }),
-      catchError(error => {
-        console.error('error to get organizer', error);
-        return throwError('Error');
-      })
-    );
-  }
 }

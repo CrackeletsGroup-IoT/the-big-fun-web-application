@@ -17,20 +17,22 @@ import {UserProfileContentComponent} from "./event/components/user-profile-conte
 import {
   UpdateProfileContentComponent
 } from "./event/components/update-profile-content/update-profile-content.component";
+import {AuthGuard} from "./event/services/auth.guard.service";
+import {NoAuthGuard} from "./event/services/no-auth.guard.service";
 
 
 const routes:Routes=[
-  { path: '', component: UserloginContentComponent },
-  { path: 'home', component: HomeContentComponent },
+  { path: '', redirectTo: '/home', pathMatch:'full' },
+  { path: 'home', component: HomeContentComponent, canActivate:[AuthGuard], data:{requiresAuth:true} },
   { path: 'aboutUs', component: AboutusContentComponent },
-  { path: 'events', component: ViewEventsContentComponent },
-  { path: 'signUp', component: UserregisterContentComponent },
-  { path: 'eventRegister', component: RegistereventComponentComponent },
+  { path: 'events', component: ViewEventsContentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
+  { path: 'signUp', component: UserregisterContentComponent, canActivate:[NoAuthGuard]},
+  { path: 'eventRegister', component: RegistereventComponentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
   { path: 'faqs', component: FaqContentComponent },
-  {path: 'signIn', component: UserloginContentComponent},
-  {path: 'userProfile', component: UserProfileContentComponent},
-  {path: 'updateProfile', component: UpdateProfileContentComponent},
-  { path: 'eventDetail/:index', component: EventdetailsComponentComponent },
+  {path: 'signIn', component: UserloginContentComponent , canActivate:[NoAuthGuard]},
+  {path: 'userProfile', component: UserProfileContentComponent, canActivate:[AuthGuard], data:{requiresAuth:true}},
+  {path: 'updateProfile', component: UpdateProfileContentComponent, canActivate:[AuthGuard], data:{requiresAuth:true}},
+  { path: 'eventDetail/:index', component: EventdetailsComponentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
 ];
 
 @NgModule({
@@ -42,4 +44,11 @@ const routes:Routes=[
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
+
+
+/////////////////
+//METODO PARA SABER SI EL USUARIO ESTA REGISTRADO
+
+
+
 
