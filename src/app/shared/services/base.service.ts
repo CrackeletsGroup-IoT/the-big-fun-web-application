@@ -3,7 +3,7 @@ import {catchError, Observable, retry, tap, throwError} from "rxjs";
 
 export class BaseService <T> {
 
-  basePath='http://localhost:8080/api/v1'
+  basePath='https://the-big-fun-app.zeabur.app/api/v1'
 
   httpOptions={
     headers:new HttpHeaders({'Content-type': 'application/json',})

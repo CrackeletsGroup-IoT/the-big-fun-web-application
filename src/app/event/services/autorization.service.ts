@@ -12,7 +12,7 @@ export class AutorizationService extends BaseService<UserSignIn> {
 
   constructor(http:HttpClient) {
     super(http);
-    this.basePath='http://localhost:8080/api/v1/userss/auth/';
+    this.basePath='https://the-big-fun-app.zeabur.app/api/v1/userss/auth/';
   }
 
   signUp(item:any): Observable<UserSignUp>{

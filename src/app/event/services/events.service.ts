@@ -11,7 +11,7 @@ export class EventsService extends BaseService<Event>{
 
   constructor(http:HttpClient) {
     super(http);
-    this.basePath='http://localhost:8080/api/v1/events';
+    this.basePath='https://the-big-fun-app.zeabur.app/api/v1/events';
   }
 
   findAttendeeByName(attendeeName: String): Observable<any> {
