@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {Event} from "../../model/event";
 import {EventsService} from "../../services/events.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-registerevent-component',
@@ -19,7 +22,7 @@ export class RegistereventComponentComponent {
     {name:'VIP', code: 'vip'}
   ]
 
-  constructor(private eventService:EventsService) { }
+  constructor(private eventService:EventsService, private snackbar:MatSnackBar, private router:Router) { }
 
   saveEvent(){
     this.eventService.create(this.event).subscribe(
@@ -27,7 +30,10 @@ export class RegistereventComponentComponent {
         console.log("Respuesta del evento creado:", response);
         this.eventId = response.id;
         console.log("ID del evento creado:", this.eventId);
-        this.addEventToOrganizer()
+
+        this.snackbar.open("Se creó su evento exitosamente", "", {verticalPosition:'top'})
+
+        //this.addEventToOrganizer()
       },
       error => {
         console.error("Error al crear el evento:", error);
@@ -36,6 +42,7 @@ export class RegistereventComponentComponent {
     console.log("Evento : ",this.event)
     this.event={} as Event;
 
+
   }
   addEventToOrganizer(){
     const organizerId = (localStorage.getItem('userId'));
@@ -43,6 +50,7 @@ export class RegistereventComponentComponent {
       () => {
         // Handle the success case if necessary
         console.log("Event was added correctly");
+
       },
       (error: any) => {
         // Handle the error if it occurs

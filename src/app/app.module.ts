@@ -26,6 +26,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HomeContentComponent} from "./event/components/home-content/home-content.component";
 import {AboutusContentComponent} from "./event/components/aboutus-content/aboutus-content.component";
 import {
@@ -57,6 +58,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
 import { NavbarAttendeeComponent } from './event/components/navbar-attendee/navbar-attendee.component';
 import {UserProfileContentComponent} from "./event/components/user-profile-content/user-profile-content.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -110,6 +112,7 @@ import {UserProfileContentComponent} from "./event/components/user-profile-conte
     MatDividerModule,
     AppRoutingModule,
     RouterModule,
+    MatSnackBarModule,
   ],
 
   providers: [],
