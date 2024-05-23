@@ -12,7 +12,7 @@ export class OrganizerService extends BaseService<Organizer>{
   constructor(http:HttpClient) {
 
     super(http);
-    this.basePath='https://the-big-fun-app.zeabur.app/api/v1/organizers';
+    this.basePath='https://the-big-fun.zeabur.app/api/v1/organizers';
   }
 
 

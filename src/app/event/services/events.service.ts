@@ -11,7 +11,7 @@ export class EventsService extends BaseService<Event>{
 
   constructor(http:HttpClient) {
     super(http);
-    this.basePath='https://the-big-fun-app.zeabur.app/api/v1/events';
+    this.basePath='https://the-big-fun.zeabur.app/api/v1/events';
   }
 
   findAttendeeByName(attendeeName: String): Observable<any> {
@@ -43,5 +43,26 @@ export class EventsService extends BaseService<Event>{
     );
   }
 
+  //metodo para subir la imagen a la base de datos
+  uploadFile(file:any, eventId:number){
+
+    const url= this.basePath + '/'+eventId + '/upload';
+    const formData= new FormData();
+
+    console.log("File: ", file)
+
+    formData.append('file', file);
+
+    console.log("FormData: ",formData);
+
+    this.http.post(url, formData).subscribe(
+      (response)=>{
+        console.log("imagen guardada correctamente");
+      },
+
+      (error)=>{console.log(error)}
+
+    );
+  }
 
 }
