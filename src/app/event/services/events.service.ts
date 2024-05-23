@@ -48,20 +48,13 @@ export class EventsService extends BaseService<Event>{
 
     const url= this.basePath + '/'+eventId + '/upload';
     const formData= new FormData();
-
-    console.log("File: ", file)
-
     formData.append('file', file);
-
-    console.log("FormData: ",formData);
 
     this.http.post(url, formData).subscribe(
       (response)=>{
         console.log("imagen guardada correctamente");
       },
-
       (error)=>{console.log(error)}
-
     );
   }
 
