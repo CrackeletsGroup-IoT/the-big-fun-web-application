@@ -35,6 +35,8 @@ export class RegistereventComponentComponent {
 
         this.snackbar.open("Se creó su evento exitosamente", "", {verticalPosition:'top'})
 
+        //para que una vez crea exitosamente lo redirige al home
+        this.router.navigate(['home']);
 
         //this.addEventToOrganizer()
       },
