@@ -14,13 +14,18 @@ export class EventdetailsComponentComponent implements  OnInit{
 
 
   constructor(private router:Router,private route:ActivatedRoute, private eventService:EventsService,private http: HttpClient) {
+
+    this.getAttendeeId();
   }
 
-  events=<any> [];
-  currentEvent={} as Event
+  events:any;
+  currentEvent: any;
   indice:number=0;
   name= '';
   attendeeId=0;
+
+  //para el simbolo de cargando
+  loading=true;
 
   ngOnInit(): void {
     this.indice=this.route.snapshot.params['index'];
@@ -33,6 +38,7 @@ export class EventdetailsComponentComponent implements  OnInit{
     this.eventService.getAll().subscribe((response: any) => {
       if (Array.isArray(response.content)) {
         this.events = response.content;
+        this.findById();
         console.log(this.events);
       } else {
         console.error('Invalid response format: events array not found');
@@ -40,17 +46,22 @@ export class EventdetailsComponentComponent implements  OnInit{
     });
   }
 
-  findById(index:number){
-    this.currentEvent = this.events[index]
-    localStorage.setItem('eventId', this.currentEvent.id.toString());
-    console.log("id del evento", localStorage.getItem('eventId'));
-    this.getAttendeeId();
+  findById(){
+    this.currentEvent = this.events.find((event:any)=>event.id==this.indice);
+    console.log("evento: " + this.currentEvent);
+
+    this.loading=false;
   }
 
+
   buy(){
-    console.log("Buy : ", this.events)
-    this.findById(this.indice)
-    console.log(" Current Event : ", this.currentEvent)
+
+    const params={
+      eventId:this.currentEvent.id,
+      attendeeId:this.attendeeId,
+    }
+
+    this.router.navigate(['buyTickets'], {queryParams:params});
   }
   addAttendeeToEvent(){
     this.eventService.addAttendeeToEvent(Number(localStorage.getItem('eventId')), this.attendeeId).subscribe(

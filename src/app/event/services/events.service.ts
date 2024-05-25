@@ -16,9 +16,9 @@ export class EventsService extends BaseService<Event>{
 
   findAttendeeByName(attendeeName: String): Observable<any> {
 
-    const url = this.basePath+'/byname/'+attendeeName;
+    const url = 'https://the-big-fun.zeabur.app/api/v1/attendees/byname/'+attendeeName;
 
-    return this.http.get(url).pipe(
+    return this.http.get(url, this.httpOptions).pipe(
       tap(response => {
         console.log('show attendee', response);
       }),
