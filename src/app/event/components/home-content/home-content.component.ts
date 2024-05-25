@@ -11,6 +11,9 @@ export class HomeContentComponent implements OnInit {
 
   events=<any> [];
 
+  //para que funcione el icono de cargando
+  loading= true;
+
   constructor(private eventService:EventsService) {  }
 
   ngOnInit(): void {
@@ -21,6 +24,9 @@ export class HomeContentComponent implements OnInit {
     this.eventService.getAll().subscribe((response: any) => {
       if (Array.isArray(response.content)) {
         this.events = response.content;
+
+        this.loading=false;
+
         console.log(this.events);
       } else {
         console.error('Invalid response format: events array not found');
