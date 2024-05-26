@@ -59,6 +59,7 @@ export class EventdetailsComponentComponent implements  OnInit{
     const params={
       eventId:this.currentEvent.id,
       attendeeId:this.attendeeId,
+      amount:this.currentEvent.cost,
     }
 
     this.router.navigate(['buyTickets'], {queryParams:params});
