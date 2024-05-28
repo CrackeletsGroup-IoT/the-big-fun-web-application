@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {EventsService} from "../../services/events.service";
+import {PaymentService} from "../../services/payment.service";
+import {v4 as uuidv4} from "uuid";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-paymentconfirmation-content',
@@ -18,7 +21,11 @@ export class PaymentconfirmationContentComponent implements OnInit{
   dataSource: any;
   displayedColumns: any;
 
-  constructor(private route:ActivatedRoute,private eventService:EventsService) {
+  qr: any; //es un arreglo de bytes
+
+  constructor(private route:ActivatedRoute,private eventService:EventsService, private paymentService:PaymentService, private sanitizer:DomSanitizer) {
+
+    this.createQr();
   }
 
   getAllEvents() {
@@ -54,6 +61,24 @@ export class PaymentconfirmationContentComponent implements OnInit{
     this.getAllEvents();
 
     this.displayedColumns = ['Fecha', 'Nombre'];
+  }
+
+  createQr() {
+
+    const body= uuidv4();
+
+    this.paymentService.createQr(body).subscribe({
+        next: (qrBlob) => { // @ts-ignore
+          this.qr = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(qrBlob));
+          //this.qr=qrBlob;
+
+        }
+        , error: (error) => {
+          console.error(error);
+        }
+      }
+    );
+
   }
 }
 
