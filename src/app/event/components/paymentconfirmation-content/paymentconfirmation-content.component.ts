@@ -22,6 +22,11 @@ export class PaymentconfirmationContentComponent implements OnInit{
   displayedColumns: any;
 
   qr: any; //es un arreglo de bytes
+  uuid:any;
+  paymentId:any;
+
+  //para el simbolo de cargando
+  loading=true;
 
   constructor(private route:ActivatedRoute,private eventService:EventsService, private paymentService:PaymentService, private sanitizer:DomSanitizer) {
 
@@ -67,18 +72,55 @@ export class PaymentconfirmationContentComponent implements OnInit{
 
     const body= uuidv4();
 
+    //gaurdanmos el uui en una variable global
+    this.uuid=body;
+
     this.paymentService.createQr(body).subscribe({
         next: (qrBlob) => { // @ts-ignore
           this.qr = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(qrBlob));
-          //this.qr=qrBlob;
 
+          this.createPayment(qrBlob);  //si existe el qr, postea el pago
         }
         , error: (error) => {
           console.error(error);
         }
       }
     );
+  }
+
+  //todo: crear el post payment -> recibe fecha del pago (generar en el front)
+  //                               guardar qr en url
+  //
+  createPayment(qrBlob:any){
+
+    const body={
+      date: new Date(), //obtener la fecha de ahora
+      uuid: this.uuid,
+      qrImg:"",
+    }
+
+    //obtiene el id de un pago
+    this.paymentService.createPayment(body).subscribe(response=>{
+      this.paymentId=response.id;
+
+      this.addFileQR(qrBlob);
+    });
 
   }
+
+  //todo: funcion para tener el link del qr
+  addFileQR(myQR:any){
+
+    this.paymentService.uploadQR(myQR, this.paymentId);
+
+    //el loading se detiene
+    this.loading=false;
+  }
+
+  //todo: crear metodo de relacion event-atendee
+
+
+
+
 }
 

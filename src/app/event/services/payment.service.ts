@@ -7,8 +7,6 @@ import {Observable} from "rxjs";
 })
 export class PaymentService {
 
-  //private accessToken='IeXyHLfK1rXAfq_-KxEzU72-NRmzWagcvH3DaGK_My1xa5BOPxR--8a9j1OuFkbZ';
-  //private  baseUrl=`https://api.qr-code-generator.com/v1/create?access-token=${this.accessToken}`;
   private basePath='https://the-big-fun.zeabur.app/api/v1/payments';
 
   constructor(private http:HttpClient) {
@@ -22,6 +20,25 @@ export class PaymentService {
     return this.http.get(`${this.basePath}/generateQR?uuid=${uuid}`,options);
   }
 
+  //metodo para subir el qr y obtener el link del qr
+  uploadQR(file:any, paymentId:number){
+
+    const url= this.basePath + '/'+ paymentId + '/upload';
+    const formData= new FormData();
+    formData.append('file', file);
+
+    this.http.post(url, formData).subscribe(
+      (response)=>{
+        console.log("qr uploaded");
+      },
+      (error)=>{console.log(error)}
+    );
+  }
+
+  createPayment(payment: any): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any>(this.basePath, payment, { headers });
+  }
 
 
 }

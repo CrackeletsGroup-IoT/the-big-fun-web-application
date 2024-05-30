@@ -1,5 +1,14 @@
 <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
 <div class="background">
+
+  <div *ngIf="loading">
+    <div>
+      <div class="text-center" >
+        <i class="fas fa-sync fa-spin"></i> Cargando...
+      </div>
+    </div>
+  </div>
+
   <div class="title">
     <h1>SUCCESSFUL PURCHASE</h1>
   </div>
