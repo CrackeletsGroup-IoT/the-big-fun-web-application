@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 import {OrganizerService} from "../../services/organizer.service";
 import {UserSignUp} from "../../model/userSignUp";
 import {AutorizationService} from "../../services/autorization.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 interface type {
   value: string;
   viewValue: string;
@@ -41,7 +42,8 @@ export class UserregisterContentComponent {
     private attendeeService:AttendeeService,
     private router: Router,
     private organizerService:OrganizerService,
-    private autorizationService: AutorizationService) {
+    private autorizationService: AutorizationService,
+    private snackbar:MatSnackBar) {
 
     this.user={} as UserSignUp;
     this.name='';
@@ -66,6 +68,8 @@ export class UserregisterContentComponent {
         this.createAttendee();
       }
       this.user = {} as UserSignUp;
+
+      this.snackbar.open("Se creo su cuenta exitosamente", "", {verticalPosition:'top'});
     });
   }
 

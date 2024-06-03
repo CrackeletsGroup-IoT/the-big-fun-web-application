@@ -6,14 +6,23 @@
   <div class="title">
     <h1>POPULAR EVENTS</h1>
   </div>
+
+  <tbody *ngIf="loading">
+  <tr>
+    <td class="text-center" colspan="10">
+      <i class="fas fa-sync fa-spin"></i> Cargando...
+    </td>
+  </tr>
+  </tbody>
+
   <div class="grid-container">
-    <div *ngFor="let event of events; let i=index" class="card">
+    <div *ngFor="let event of events" class="card">
       <div class="card-image">
-        <img [src]="event.image" [alt]="event.name">
+        <img [src]="event.imageUrl" [alt]="event.name">
       </div>
       <div class="card-title eventName">{{ event.name }}</div>
       <div class="card-action">
-        <a [routerLink]="['/eventDetail',i]">
+        <a [routerLink]="['/eventDetail',event.id]">
           <button mat-button class="event-button">View details</button>
         </a>
 
