@@ -16,7 +16,7 @@ export class OrganizerService extends BaseService<Organizer>{
   }
 
 
-  findOrganizerByName(organizerName: String): Observable<any> {
+  findOrganizerByName(organizerName: any): Observable<any> {
     const url = this.basePath+'/byname/'+organizerName;
 
     return this.http.get(url).pipe(

@@ -9,26 +9,29 @@
   </div>
   </div>
 
-  <div class="title">
-    <h1>{{currentEvent.name}}</h1>
-  </div>
-  <div class="body">
-    <div class="imgContainer">
-      <img [src]="currentEvent.imageUrl" alt="user picture" aria-label="Event Image" >
-    </div>
-    <br>
+  <div *ngIf = "!loading">
 
-    <div class="information">
-      Date: {{currentEvent.date}}
-      <br>
-      Location: {{currentEvent.address}}
-      <br>
-      Price: {{currentEvent.cost}}
-      <br>
-      Capacity: {{currentEvent.capacity}}
-      <br>
-      <button (click)="buy()" mat-button class="button">Buy</button>
+    <div class="title">
+      <h1>{{currentEvent.name}}</h1>
     </div>
-  </div>
+    <div class="body">
+      <div class="imgContainer">
+        <img [src]="currentEvent.imageUrl" alt="user picture" aria-label="Event Image" >
+      </div>
+      <br>
 
+      <div class="information">
+        Date: {{currentEvent.date}}
+        <br>
+        Location: {{currentEvent.address}}
+        <br>
+        Price: {{currentEvent.cost}}
+        <br>
+        Capacity: {{currentEvent.capacity}}
+        <br>
+        <button (click)="buy()" mat-button class="button">Buy</button>
+      </div>
+    </div>
+
+  </div>
 </div>

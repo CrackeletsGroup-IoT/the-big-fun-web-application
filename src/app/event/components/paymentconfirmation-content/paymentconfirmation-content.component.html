@@ -9,31 +9,33 @@
     </div>
   </div>
 
-  <div class="title">
-    <h1>SUCCESSFUL PURCHASE</h1>
+  <div *ngIf="!loading">
+    <div class="title">
+      <h1>SUCCESSFUL PURCHASE</h1>
+    </div>
+    <div class="imgContainer">
+      <img [src]="eventImg" alt="user picture" aria-label="Assistant Image" style="margin-left: 10px"/>
+      <img [src]="qr" alt="qr picture" aria-label="Assistant Image" style="margin-right: 10px;"/>
+    </div>
+    <br>
+    <div class="datatable">
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.date }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nameEvent">
+          <mat-header-cell *matHeaderCellDef>Name Event</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.nameEvent }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="['date', 'nameEvent']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['date',  'nameEvent']"></mat-row>
+      </mat-table>
+
+    </div>
+
   </div>
-  <div class="imgContainer">
-    <img [src]="eventImg" alt="user picture" aria-label="Assistant Image" style="margin-left: 10px"/>
-    <img [src]="qr" alt="qr picture" aria-label="Assistant Image" style="margin-right: 10px;"/>
-  </div>
-  <br>
-  <div class="datatable">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container matColumnDef="date">
-        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{ row.date }}</mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="nameEvent">
-        <mat-header-cell *matHeaderCellDef>Name Event</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{ row.nameEvent }}</mat-cell>
-      </ng-container>
-
-      <mat-header-row *matHeaderRowDef="['date', 'nameEvent']"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: ['date',  'nameEvent']"></mat-row>
-    </mat-table>
-
-  </div>
-
 
 </div>

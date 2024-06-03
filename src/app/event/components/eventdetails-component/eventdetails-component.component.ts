@@ -64,21 +64,11 @@ export class EventdetailsComponentComponent implements  OnInit{
 
     this.router.navigate(['buyTickets'], {queryParams:params});
   }
-  addAttendeeToEvent(){
-    this.eventService.addAttendeeToEvent(Number(localStorage.getItem('eventId')), this.attendeeId).subscribe(
-      () => {
-        console.log("Attendee was added correctly");
-      },
-      (error: any) => {
-        console.error(error);
-      }
-    );
-  }
+
   getAttendeeId(){
     this.eventService.findAttendeeByName(String(localStorage.getItem('username'))).subscribe(
       (response: any) => {
         this.attendeeId = response.id;
-        this.addAttendeeToEvent()
         console.log("Attendee ID:", this.attendeeId);
       },
       (error: any) => {

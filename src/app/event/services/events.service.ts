@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import {BaseService} from "../../shared/services/base.service";
 import {Event} from "../model/event";
 import {HttpClient} from "@angular/common/http";
-import {catchError, Observable, tap, throwError} from "rxjs";
+import {catchError, Observable, retry, tap, throwError} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventsService extends BaseService<Event>{
 
-  constructor(http:HttpClient) {
+  constructor(http:HttpClient,private router:Router) {
     super(http);
     this.basePath='https://the-big-fun.zeabur.app/api/v1/events';
   }
@@ -24,6 +25,7 @@ export class EventsService extends BaseService<Event>{
       }),
       catchError(error => {
         console.error('error to get attendee', error);
+
         return throwError('Error');
       })
     );
@@ -53,9 +55,20 @@ export class EventsService extends BaseService<Event>{
     this.http.post(url, formData).subscribe(
       (response)=>{
         console.log("imagen guardada correctamente");
+
       },
       (error)=>{console.log(error)}
     );
   }
+
+  createEvent(item: any, organizerId:any): Observable<any> {
+
+    const url=this.basePath + "/" + organizerId;
+
+    return this.http.post<any>(url, JSON.stringify(item),
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
 
 }

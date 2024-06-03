@@ -20,6 +20,8 @@ export class NavComponent implements OnInit{
     localStorage.removeItem('userId');
     localStorage.removeItem('username');
     localStorage.removeItem('role');
+
+    localStorage.removeItem('organizerId');  //para dejar de almacnar un organizer que ya se fue
   }
   ngOnInit() {
     interval(1000).subscribe(() => {

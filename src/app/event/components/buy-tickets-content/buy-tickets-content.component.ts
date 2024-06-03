@@ -69,6 +69,8 @@ export class BuyTicketsContentComponent implements OnInit{
       (response) => {
         this.snackbar.open("Su compra se realizó exitosamente", "", {verticalPosition:'top'})
 
+
+
         //redirigir a la confirmacion depago
         const params={
           eventId:this.eventId,

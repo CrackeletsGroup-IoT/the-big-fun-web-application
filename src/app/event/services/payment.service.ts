@@ -35,9 +35,9 @@ export class PaymentService {
     );
   }
 
-  createPayment(payment: any): Observable<any> {
+  createPayment(payment: any, eventAttendeeId:any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any>(this.basePath, payment, { headers });
+    return this.http.post<any>(this.basePath+'/'+eventAttendeeId, payment, { headers });
   }
 
 

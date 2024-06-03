@@ -26,7 +26,7 @@ export class RegistereventComponentComponent {
   constructor(private eventService:EventsService, private snackbar:MatSnackBar, private router:Router) { }
 
   saveEvent(){
-    this.eventService.create(this.event).subscribe(
+    this.eventService.createEvent(this.event,localStorage.getItem('organizerId')).subscribe(
       response => {
         console.log("Respuesta del evento creado:", response);
         this.eventId = response.id;
@@ -38,7 +38,6 @@ export class RegistereventComponentComponent {
         //para que una vez crea exitosamente lo redirige al home
         this.router.navigate(['home']);
 
-        //this.addEventToOrganizer()
       },
       error => {
         console.error("Error al crear el evento:", error);

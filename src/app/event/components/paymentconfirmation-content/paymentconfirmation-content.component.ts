@@ -4,6 +4,7 @@ import {EventsService} from "../../services/events.service";
 import {PaymentService} from "../../services/payment.service";
 import {v4 as uuidv4} from "uuid";
 import {DomSanitizer} from "@angular/platform-browser";
+import {EventAtendeeService} from "../../services/event-atendee.service";
 
 @Component({
   selector: 'app-paymentconfirmation-content',
@@ -28,9 +29,10 @@ export class PaymentconfirmationContentComponent implements OnInit{
   //para el simbolo de cargando
   loading=true;
 
-  constructor(private route:ActivatedRoute,private eventService:EventsService, private paymentService:PaymentService, private sanitizer:DomSanitizer) {
+  eventAttendeeId:any;
 
-    this.createQr();
+  constructor(private route:ActivatedRoute,private eventService:EventsService, private paymentService:PaymentService, private sanitizer:DomSanitizer, private eventAttendeeService:EventAtendeeService) {
+
   }
 
   getAllEvents() {
@@ -66,6 +68,15 @@ export class PaymentconfirmationContentComponent implements OnInit{
     this.getAllEvents();
 
     this.displayedColumns = ['Fecha', 'Nombre'];
+
+    //una vez cargada la informacion, añade el atennde como parte dle evento
+    this.eventAttendeeService.createEventAttendee(this.eventId, this.attendeeId).subscribe( value => {
+      this.eventAttendeeId=value.id;
+      console.log("event-atendeee: " + value);
+
+      this.createQr();
+
+    });
   }
 
   createQr() {
@@ -100,7 +111,7 @@ export class PaymentconfirmationContentComponent implements OnInit{
     }
 
     //obtiene el id de un pago
-    this.paymentService.createPayment(body).subscribe(response=>{
+    this.paymentService.createPayment(body, this.eventAttendeeId).subscribe(response=>{
       this.paymentId=response.id;
 
       this.addFileQR(qrBlob);
