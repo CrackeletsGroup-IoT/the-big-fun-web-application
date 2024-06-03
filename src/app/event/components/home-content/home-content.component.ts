@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EventsService} from "../../services/events.service";
+import {OrganizerService} from "../../services/organizer.service";
 //import { Event } from '../thebigfun/models/event.model';
 
 @Component({
@@ -11,7 +12,20 @@ export class HomeContentComponent implements OnInit {
 
   events=<any> [];
 
-  constructor(private eventService:EventsService) {  }
+  //para que funcione el icono de cargando
+  loading= true;
+
+  constructor(private eventService:EventsService,private organizerService:OrganizerService) {
+
+    if (localStorage.getItem('organizerId') == null && localStorage.getItem('role')== 'ROLE_ORGANIZER'){
+
+      this.organizerService.findOrganizerByName(localStorage.getItem('username')).subscribe(
+        value=> localStorage.setItem('organizerId', value.id));
+
+      console.log("organizer id en home: " + localStorage.getItem('organizerId'));
+
+    }
+  }
 
   ngOnInit(): void {
     this.getAllEvents();
@@ -21,27 +35,14 @@ export class HomeContentComponent implements OnInit {
     this.eventService.getAll().subscribe((response: any) => {
       if (Array.isArray(response.content)) {
         this.events = response.content;
+
+        this.loading=false;
+
         console.log(this.events);
       } else {
         console.error('Invalid response format: events array not found');
       }
     });
-  }
-
-
-  addPaymentToEvent(){
-    const eventId = 3;
-    const paymentId = 1;
-    this.eventService.addPayamentToEvent(paymentId, eventId).subscribe(
-      () => {
-        // Handle the success case if necessary
-        console.log("Organizer was added correctly");
-      },
-      (error: any) => {
-        // Handle the error if it occurs
-        console.error(error);
-      }
-    );
   }
 
 }

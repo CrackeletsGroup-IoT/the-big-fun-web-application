@@ -20,6 +20,8 @@ import {
 import {AuthGuard} from "./event/services/auth.guard.service";
 import {NoAuthGuard} from "./event/services/no-auth.guard.service";
 
+import {BuyTicketsContentComponent} from "./event/components/buy-tickets-content/buy-tickets-content.component";
+import {PaymentconfirmationContentComponent} from "./event/components/paymentconfirmation-content/paymentconfirmation-content.component";
 
 const routes:Routes=[
   { path: '', redirectTo: '/home', pathMatch:'full' },
@@ -33,7 +35,13 @@ const routes:Routes=[
   {path: 'userProfile', component: UserProfileContentComponent, canActivate:[AuthGuard], data:{requiresAuth:true}},
   {path: 'updateProfile', component: UpdateProfileContentComponent, canActivate:[AuthGuard], data:{requiresAuth:true}},
   { path: 'eventDetail/:index', component: EventdetailsComponentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
+  { path: 'buyTickets', component: BuyTicketsContentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
+  { path: 'paymentConfirmation', component: PaymentconfirmationContentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
+
 ];
+
+//AuthGuard->usuario debe estar logueado
+//NoAuthGuard -> usuario puede no estar autenticado
 
 @NgModule({
   declarations: [],

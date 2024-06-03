@@ -12,7 +12,7 @@ export class AttendeeService extends BaseService<Attendee>{
 
   constructor(http:HttpClient) {
     super(http);
-    this.basePath='http://localhost:8080/api/v1/attendees';
+    this.basePath='https://the-big-fun.zeabur.app/api/v1/attendees';
   }
 
   findAttendeeByName(attendeeName: String): Observable<any> {

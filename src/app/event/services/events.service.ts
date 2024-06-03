@@ -2,28 +2,30 @@ import { Injectable } from '@angular/core';
 import {BaseService} from "../../shared/services/base.service";
 import {Event} from "../model/event";
 import {HttpClient} from "@angular/common/http";
-import {catchError, Observable, tap, throwError} from "rxjs";
+import {catchError, Observable, retry, tap, throwError} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventsService extends BaseService<Event>{
 
-  constructor(http:HttpClient) {
+  constructor(http:HttpClient,private router:Router) {
     super(http);
-    this.basePath='http://localhost:8080/api/v1/events';
+    this.basePath='https://the-big-fun.zeabur.app/api/v1/events';
   }
 
   findAttendeeByName(attendeeName: String): Observable<any> {
 
-    const url = this.basePath+'/byname/'+attendeeName;
+    const url = 'https://the-big-fun.zeabur.app/api/v1/attendees/byname/'+attendeeName;
 
-    return this.http.get(url).pipe(
+    return this.http.get(url, this.httpOptions).pipe(
       tap(response => {
         console.log('show attendee', response);
       }),
       catchError(error => {
         console.error('error to get attendee', error);
+
         return throwError('Error');
       })
     );
@@ -41,6 +43,31 @@ export class EventsService extends BaseService<Event>{
         return throwError('Error');
       })
     );
+  }
+
+  //metodo para subir la imagen a la base de datos
+  uploadFile(file:any, eventId:number){
+
+    const url= this.basePath + '/'+eventId + '/upload';
+    const formData= new FormData();
+    formData.append('file', file);
+
+    this.http.post(url, formData).subscribe(
+      (response)=>{
+        console.log("imagen guardada correctamente");
+
+      },
+      (error)=>{console.log(error)}
+    );
+  }
+
+  createEvent(item: any, organizerId:any): Observable<any> {
+
+    const url=this.basePath + "/" + organizerId;
+
+    return this.http.post<any>(url, JSON.stringify(item),
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
   }
 
 
