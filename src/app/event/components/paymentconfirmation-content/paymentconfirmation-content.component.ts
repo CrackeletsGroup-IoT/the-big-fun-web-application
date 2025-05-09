@@ -53,7 +53,7 @@ export class PaymentconfirmationContentComponent implements OnInit{
 
     this.eventImg= this.currentEvent.imageUrl;   //trae laimagen del back
     this.dataSource=[
-      {date: this.currentEvent.date,hour:this.currentEvent.hour, nameEvent:this.currentEvent.name}
+      {date: this.currentEvent.date,hour:this.currentEvent.hour, nameEvent:this.currentEvent.name,address:this.currentEvent.address}
     ]
 
   }

@@ -10,6 +10,12 @@
         <mat-label>Name Event</mat-label>
         <input matInput [(ngModel)]="event.name">
       </mat-form-field>
+
+      <mat-form-field class="inputText">
+        <mat-label>Address</mat-label>
+        <input matInput [(ngModel)]="event.address">
+      </mat-form-field>
+
       <mat-form-field class="inputText">
         <mat-label>District</mat-label>
         <input matInput [(ngModel)]="event.district">
@@ -39,9 +45,11 @@
         <mat-label>Price</mat-label>
         <input matInput type="number" [(ngModel)]="event.cost">
       </mat-form-field>
+
       <mat-form-field class="textarea">
-        <textarea matInput placeholder="Address" [(ngModel)]="event.address" rows="2"></textarea>
+        <textarea matInput placeholder="Description" [(ngModel)]="event.description" rows="2"></textarea>
       </mat-form-field>
+
       <mat-form-field class="maxcapacity">
         <mat-label>Max Capacity</mat-label>
         <input matInput type="number" [(ngModel)]="event.capacity">

@@ -59,6 +59,7 @@ import {RouterModule} from "@angular/router";
 import { NavbarAttendeeComponent } from './event/components/navbar-attendee/navbar-attendee.component';
 import {UserProfileContentComponent} from "./event/components/user-profile-content/user-profile-content.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import { SeeBuyersComponentComponent } from './event/components/see-buyers-component/see-buyers-component.component';
 
 
 @NgModule({
@@ -85,6 +86,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     ViewEventsContentComponent,
     NavbarAttendeeComponent,
     UserProfileContentComponent,
+    SeeBuyersComponentComponent,
   ],
 
   imports: [

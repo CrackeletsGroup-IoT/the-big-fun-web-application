@@ -1,0 +1,65 @@
+.background {
+  background: rgba(99, 99, 163, 0.35);
+  border-radius: 30px;
+  height:600px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 50px auto;
+
+}
+.totalContent{
+  height: 500px;
+  overflow-y: scroll;
+}
+.title h1 {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 57px;
+  color: rgba(83, 16, 92, 0.96);
+  text-align: left;
+  margin-top: 5px;
+}
+.eventsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.mat-table{
+  width: 100%;
+  max-width: 1200px;
+}
+button{
+
+  background-color: rgba(83, 16, 92, 0.96);
+  color: white !important;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 50px;
+  height: 50px;
+  width: 150px;
+}
+.tableStyle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.mat-column-details {
+  width: 150px;
+}
+.mat-header-cell,
+.mat-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

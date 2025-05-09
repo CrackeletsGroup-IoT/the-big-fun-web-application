@@ -8,6 +8,7 @@ export interface Event {
   capacity: number;
   address:string;
   district:string;
+  description:string;
 }
 
 

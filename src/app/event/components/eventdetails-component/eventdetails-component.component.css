@@ -4,7 +4,7 @@
   font-weight: 800;
   font-size: 42px;
   line-height: 57px;
-  color: rgba(83, 16, 92, 0.96);
+  color: rgba(3, 83, 151, 1);
   text-align: center;
   margin-top: 5px;
 }
@@ -35,8 +35,7 @@ img{
   font-weight: 800;
   font-size: 20px;
   line-height: 57px;
-  color: rgba(3, 83, 151, 1);
-
+  color: rgba(83, 16, 92, 0.96);
 }
 .button{
   background-color: transparent;

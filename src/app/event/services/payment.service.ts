@@ -7,7 +7,8 @@ import {Observable} from "rxjs";
 })
 export class PaymentService {
 
-  private basePath='https://the-big-fun.zeabur.app/api/v1/payments';
+  //private basePath='https://the-big-fun.zeabur.app/api/v1/payments';
+  private basePath='http://localhost:8080/api/v1/payments';
 
   constructor(private http:HttpClient) {
   }

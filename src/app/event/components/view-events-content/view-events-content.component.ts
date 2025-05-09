@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {EventsService} from "../../services/events.service";
+import {OrganizerService} from "../../services/organizer.service";
+import {EventAtendeeService} from "../../services/event-atendee.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-view-events-content',
@@ -13,15 +16,17 @@ export class ViewEventsContentComponent implements OnInit{
   eventsFiltered:Array<any>=[]
   attendeeId=0;
   organizerId=0;
+  userRole: string | null = '';
 
-  constructor(private eventService:EventsService) {
+  constructor(private router:Router,private eventService:EventsService, private organizerService:OrganizerService,private eventAtendeeService:EventAtendeeService) {
   }
 
 
   ngOnInit(): void {
-    this.getAllEvents();
+    //this.getAllEvents();
+    this.userRole = localStorage.getItem('role');
 
-    if(localStorage.getItem('role')=='ROLE_USER'){
+    if(this.userRole=='ROLE_USER'){
       this.getAttendeeId();
 
     }else{
@@ -31,37 +36,38 @@ export class ViewEventsContentComponent implements OnInit{
   }
 
 
-  getAllEvents() {
+  getAllEvents(callback: () => void) {
     this.eventService.getAll().subscribe((response: any) => {
       if (Array.isArray(response.content)) {
         this.events = response.content;
-        console.log(this.events);
+        callback(); // Llamamos la función de filtrado al terminar de cargar eventos
       } else {
-        console.error('Invalid response format: events array not found');
       }
     });
   }
-  getEventsFromOrganizers(){
-    console.log('organizer id', this.organizerId)
-    this.eventService.getEventsInOrganizers(this.organizerId).subscribe((response: any) => {
+  getEventsFromOrganizers() {
+    console.log('Organizer ID:', this.organizerId);
+    this.eventService.findEventsByOrganizerId(this.organizerId).subscribe((response: any) => {
       if (Array.isArray(response.content)) {
-        this.eventsId = response.content.map((event: any) => event.eventId);
-        console.log(response);
-        console.log("id of events in organizers",this.eventsId);
-        this.filterEvents();
+        this.eventsFiltered = response.content;
+        console.log('Filtered events (by organizer):', this.eventsFiltered);
+      } else {
+        console.error('response.content is not an array', response);
       }
     });
   }
+
   filterEvents() {
     this.eventsFiltered = this.events.filter(event => this.eventsId.includes(event.id));
     console.log('Filtered events:', this.eventsFiltered);
   }
   getEventsFromAttendee(){
-    this.eventService.getEventsInAttendee(this.attendeeId).subscribe((response: any) => {
+    this.eventAtendeeService.getEventsBuyAttendee(this.attendeeId).subscribe((response: any) => {
       if (Array.isArray(response.content)) {
-        this.eventsIdAttendees = response.content.map((event: any) => event.event.id);
-        console.log("IDs of events in attendees:", this.eventsIdAttendees);
-        this.filterEventsAttendee();
+        this.eventsFiltered = response.content;
+        console.log("Filtered events (by attendee):", this.eventsFiltered);
+      }else {
+        console.error('response.content is not an array', response);
       }
     });
   }
@@ -73,8 +79,8 @@ export class ViewEventsContentComponent implements OnInit{
     this.eventService.findAttendeeByName(String(localStorage.getItem('username'))).subscribe(
       (response: any) => {
         this.attendeeId = response.id;
-        console.log("Attendee ID:", this.attendeeId);
-        this.getEventsFromAttendee();
+        //console.log("Attendee ID:", this.attendeeId);
+        this.getAllEvents(() => this.getEventsFromAttendee());
       },
       (error: any) => {
         console.error(error);
@@ -82,15 +88,26 @@ export class ViewEventsContentComponent implements OnInit{
     );
   }
   getOrganizerId(){
-    this.eventService.findOrganizerByName(String(localStorage.getItem('username'))).subscribe(
+    this.organizerService.findOrganizerByName(String(localStorage.getItem('username'))).subscribe(
       (response: any) => {
         this.organizerId = response.id;
-        console.log("Organizer ID:", this.organizerId);
-        this.getEventsFromOrganizers()
+        //esto porque ahora no pasa por /home y por ello no esta guardando el id cuando es organizer
+        localStorage.setItem('organizerId',String(this.organizerId))
+        //console.log("Organizer ID:", this.organizerId);
+        this.getAllEvents(() => this.getEventsFromOrganizers());
       },
       (error: any) => {
         console.error(error);
       }
     );
+  }
+
+  seeBuyers(eventId:any){
+
+    const params={
+      eventId:eventId,
+    }
+
+    this.router.navigate(['seebuyers'], {queryParams:params});
   }
 }

@@ -21,15 +21,18 @@
       <br>
 
       <div class="information">
+        {{currentEvent.description}}
+        <br>
         Date: {{currentEvent.date}}
         <br>
-        Location: {{currentEvent.address}}
+        Address: {{currentEvent.address}} - {{currentEvent.district}}
         <br>
         Price: {{currentEvent.cost}}
         <br>
         Capacity: {{currentEvent.capacity}}
         <br>
-        <button (click)="buy()" mat-button class="button">Buy</button>
+        <!-- Solo se muestra si el usuario tiene el rol de attendee-->
+        <button *ngIf="userRole === 'ROLE_USER'" (click)="buy()" mat-button class="button">Buy</button>
       </div>
     </div>
 

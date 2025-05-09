@@ -26,6 +26,9 @@ export class RegistereventComponentComponent {
   constructor(private eventService:EventsService, private snackbar:MatSnackBar, private router:Router) { }
 
   saveEvent(){
+
+    this.event.date = new Date(this.event.date).toISOString().split('T')[0]; // "2025-05-15"
+
     this.eventService.createEvent(this.event,localStorage.getItem('organizerId')).subscribe(
       response => {
         console.log("Respuesta del evento creado:", response);
@@ -36,7 +39,7 @@ export class RegistereventComponentComponent {
         this.snackbar.open("Se creó su evento exitosamente", "", {verticalPosition:'top'})
 
         //para que una vez crea exitosamente lo redirige al home
-        this.router.navigate(['home']);
+        this.router.navigate(['/events']);
 
       },
       error => {

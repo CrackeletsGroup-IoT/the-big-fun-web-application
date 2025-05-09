@@ -23,6 +23,8 @@ import {NoAuthGuard} from "./event/services/no-auth.guard.service";
 import {BuyTicketsContentComponent} from "./event/components/buy-tickets-content/buy-tickets-content.component";
 import {PaymentconfirmationContentComponent} from "./event/components/paymentconfirmation-content/paymentconfirmation-content.component";
 
+import {SeeBuyersComponentComponent} from "./event/components/see-buyers-component/see-buyers-component.component";
+
 const routes:Routes=[
   { path: '', redirectTo: '/home', pathMatch:'full' },
   { path: 'home', component: HomeContentComponent, canActivate:[AuthGuard], data:{requiresAuth:true} },
@@ -37,7 +39,7 @@ const routes:Routes=[
   { path: 'eventDetail/:index', component: EventdetailsComponentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
   { path: 'buyTickets', component: BuyTicketsContentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
   { path: 'paymentConfirmation', component: PaymentconfirmationContentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
-
+  { path: 'seebuyers', component: SeeBuyersComponentComponent , canActivate:[AuthGuard], data:{requiresAuth:true}},
 ];
 
 //AuthGuard->usuario debe estar logueado
