@@ -2,43 +2,55 @@
 
 <div class="background">
   <div class="title">
-    <h1>AVAILABLE EVENTS</h1>
+    <h1>My Events</h1>
   </div>
   <div class="totalContent">
 
-    <div *ngFor="let event of eventsFiltered; let i=index" class="eventsContainer" >
-      <table mat-table [dataSource]="[event]" style="border: 3px solid rgba(3, 83, 151, 1); width:1000px">
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef>Date</th>
-          <td mat-cell *matCellDef="let element">{{ element.date }}</td>
-        </ng-container>
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>Event Name</th>
-          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-        </ng-container>
-        <ng-container matColumnDef="cost">
-          <th mat-header-cell *matHeaderCellDef>Price</th>
-          <td mat-cell *matCellDef="let element">{{ element.cost }}</td>
-        </ng-container>
-        <ng-container matColumnDef="capacity">
-          <th mat-header-cell *matHeaderCellDef>Capacity</th>
-          <td mat-cell *matCellDef="let element">{{ element.capacity }}</td>
-        </ng-container>
+    <table mat-table [dataSource]="eventsFiltered" style="border: 3px solid rgba(3, 83, 151, 1); width:1000px">
 
-        <ng-container matColumnDef="details">
-          <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let element" class="mat-column-details">
-            <a [routerLink]="['/eventDetail',i]">
-              <button mat-button>View details</button>
-            </a>
+      <!-- Date -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+      </ng-container>
 
-          </td>
-        </ng-container>
+      <!-- Name -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Event Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="['date', 'name', 'cost', 'capacity', 'details']"></tr>
-        <tr mat-row *matRowDef="let row; columns: ['date', 'name', 'cost', 'capacity', 'details']"></tr>
-      </table>
-    </div>
+      <!-- Cost -->
+      <ng-container matColumnDef="cost">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">{{ element.cost }}</td>
+      </ng-container>
+
+      <!-- Capacity -->
+      <ng-container matColumnDef="capacity">
+        <th mat-header-cell *matHeaderCellDef>Capacity</th>
+        <td mat-cell *matCellDef="let element">{{ element.capacity }}</td>
+      </ng-container>
+
+      <!-- Actions -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <a [routerLink]="['/eventDetail', element.id]">
+            <button mat-button>View details</button>
+          </a>
+          <a *ngIf="userRole !== 'ROLE_USER'">
+            <button mat-button (click)="seeBuyers(element.id)">See buyers</button>
+          </a>
+        </td>
+      </ng-container>
+
+      <!-- Header & Row -->
+      <tr mat-header-row *matHeaderRowDef="['date', 'name', 'cost', 'capacity', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['date', 'name', 'cost', 'capacity', 'actions']"></tr>
+
+    </table>
 
   </div>
 </div>
+

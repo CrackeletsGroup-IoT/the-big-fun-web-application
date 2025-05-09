@@ -30,8 +30,13 @@
           <mat-cell *matCellDef="let row">{{ row.nameEvent }}</mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="['date', 'nameEvent']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['date',  'nameEvent']"></mat-row>
+        <ng-container matColumnDef="address">
+          <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.address }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="['date', 'nameEvent','address']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['date',  'nameEvent','address']"></mat-row>
       </mat-table>
 
     </div>

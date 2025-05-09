@@ -4,6 +4,7 @@ import {EventsService} from "../../services/events.service";
 import {Event} from "../../model/event";
 import {isEmpty} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {OrganizerService} from "../../services/organizer.service";
 
 @Component({
   selector: 'app-eventdetails-component',
@@ -13,9 +14,17 @@ import {HttpClient} from "@angular/common/http";
 export class EventdetailsComponentComponent implements  OnInit{
 
 
-  constructor(private router:Router,private route:ActivatedRoute, private eventService:EventsService,private http: HttpClient) {
+  constructor(private router:Router,private route:ActivatedRoute, private eventService:EventsService,private http: HttpClient,private organizerService:OrganizerService) {
 
-    this.getAttendeeId();
+    this.userRole = localStorage.getItem('role');
+
+    if(this.userRole=='ROLE_USER'){
+      this.getAttendeeId();
+
+    }else{
+      this.getOrganizerId();
+    }
+    //this.getAttendeeId();
   }
 
   events:any;
@@ -23,13 +32,15 @@ export class EventdetailsComponentComponent implements  OnInit{
   indice:number=0;
   name= '';
   attendeeId=0;
+  organizerId=0;
+  userRole: string | null = '';
 
   //para el simbolo de cargando
   loading=true;
 
   ngOnInit(): void {
     this.indice=this.route.snapshot.params['index'];
-    console.log(this.indice)
+    console.log("indice", this.indice)
     this.getAllEvents();
 
   }
@@ -70,6 +81,18 @@ export class EventdetailsComponentComponent implements  OnInit{
       (response: any) => {
         this.attendeeId = response.id;
         console.log("Attendee ID:", this.attendeeId);
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
+  }
+
+  getOrganizerId(){
+    this.organizerService.findOrganizerByName(String(localStorage.getItem('username'))).subscribe(
+      (response: any) => {
+        this.organizerId = response.id;
+        console.log("Organizer ID:", this.organizerId);
       },
       (error: any) => {
         console.error(error);

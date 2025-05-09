@@ -12,12 +12,14 @@ export class EventsService extends BaseService<Event>{
 
   constructor(http:HttpClient,private router:Router) {
     super(http);
-    this.basePath='https://the-big-fun.zeabur.app/api/v1/events';
+    //this.basePath='https://the-big-fun.zeabur.app/api/v1/events';
+    this.basePath='http://localhost:8080/api/v1/events';
   }
 
   findAttendeeByName(attendeeName: String): Observable<any> {
 
-    const url = 'https://the-big-fun.zeabur.app/api/v1/attendees/byname/'+attendeeName;
+    //const url = 'https://the-big-fun.zeabur.app/api/v1/attendees/byname/'+attendeeName;
+    const url = 'http://localhost:8080/api/v1/attendees/byname/'+attendeeName;
 
     return this.http.get(url, this.httpOptions).pipe(
       tap(response => {
@@ -70,5 +72,18 @@ export class EventsService extends BaseService<Event>{
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  findEventsByOrganizerId(organizerId: any): Observable<any> {
+    const url = this.basePath+'/organizer/'+organizerId;
+
+    return this.http.get(url).pipe(
+      tap(response => {
+        //console.log('show events by organizer', response);
+      }),
+      catchError(error => {
+        console.error('error to get events by organizer', error);
+        return throwError('Error');
+      })
+    );
+  }
 
 }

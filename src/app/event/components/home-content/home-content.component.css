@@ -1,55 +1,15 @@
+/* Fondo general */
 .background {
   background-color: rgba(99, 99, 163, 0.35);
-  width: 1000px;
-  margin-top:50px;
-  margin-bottom:50px;/* centra horizontalmente */
-  margin-left:auto;
-  margin-right: auto;
-  padding: 50px;
+  max-width: 100%;
+  width: 100%;
+  padding: 2rem;
   border-radius: 30px;
-  height: 600px;
-  max-height:100%;
-
-
+  min-height: calc(100vh - 150px);
 }
 
-.eventName {
-  font-family: "Nunito", sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 57px;
-  color: rgba(83, 16, 92, 0.96);
-
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  overflow-y: auto;
-  height: 500px;
-
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin: 10px;
-
-
-}
-
-.card-image {
-  grid-row: 1 / 2;
-  overflow: hidden;
-  width:250px;
-  height:250px;
-  border-radius: 30px;
-
-}
-.title h1{
+/* Título principal */
+.title h1 {
   font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 800;
@@ -57,44 +17,94 @@
   line-height: 57px;
   color: rgba(83, 16, 92, 0.96);
   text-align: left;
-  margin-top: 5px;
+  margin-top: 0;
 }
+
+/* Contenedor de tarjetas en grilla responsive */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  width:100%;
+}
+
+/* Tarjeta */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagen dentro de la tarjeta */
+.card-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
 .card-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
+
+/* Nombre del evento */
+.eventName {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  color: rgba(83, 16, 92, 0.96);
+  margin-top: 1rem;
+}
+
+/* Botón de ver detalles */
+.card-action {
+  margin: 1rem 0;
+  text-align: center;
+}
+
 .event-button {
   background-color: rgba(83, 16, 92, 0.96);
   color: white !important;
   border: none;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 16px;
   font-family: "Nunito", sans-serif;
-  font-style: normal;
   font-weight: 800;
   font-size: 16px;
   cursor: pointer;
 }
-.card-title {
-  grid-row: 2 / 3;
-  padding: 10px;
-  font-size: 1.2em;
-  font-weight: bold;
+
+/* Texto centrado de "Cargando" */
+.text-center {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #555;
 }
 
-.card-action {
-  grid-row: 3 / 4;
-  padding: 10px;
-  text-align: center;
-}
-@media (min-width: 768px) {
+/* Responsive extra */
+@media (max-width: 768px) {
+  .title h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
   .background {
-    max-width: 1500px;
-    max-height: 2000px;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 50px;
+    padding: 1rem;
+    margin-top: 80px;
   }
 }

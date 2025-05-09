@@ -41,7 +41,13 @@ export class UserloginContentComponent {
         localStorage.setItem('token',String(this.userResponse.token));
         console.log(localStorage.getItem('token'));
 
-        this.router.navigate(['/home']);
+        // Redirección según rol
+        const role = localStorage.getItem('role');
+        if (role === 'ROLE_USER') {
+          this.router.navigate(['/home']);
+        } else {
+          this.router.navigate(['/events']);
+        }
       },
       error => {
         console.error("Error de autenticación:", error);
