@@ -1,25 +1,35 @@
-.profile-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 150px;
+/* Reseteo de box-sizing */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
-  top: 0;
-  left: 0;
-
   margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
 }
-.header h1{
+
+.header h1 {
   font-family: 'Nunito', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 50px;
   line-height: 57px;
   color: rgba(83, 16, 92, 0.96);
+  margin-bottom: 20px;  /* Espacio debajo del título */
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+  flex-wrap: wrap;
 }
 
 .container {
@@ -43,7 +53,6 @@
   font-size: 18px;
   line-height: 25px;
   color: #53105c;
-
 }
 
 .content {
@@ -52,24 +61,27 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.image-container{
-  display:flex;
+
+.image-container {
+  display: flex;
   justify-content: center;
   margin-bottom: 100px;
 }
-.image-container img{
+
+.image-container img {
   height: auto;
   border-radius: 600px;
   max-width: 50%;
-  width:100%;
+  width: 100%;
 }
+
 .info {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-
   margin-bottom: 50px;
 }
+
 .button-container {
   display: flex;
   flex-direction: column;
@@ -77,35 +89,42 @@
   margin-bottom: 70px;
   align-items: center;
 }
+
+/* Estilos responsivos para dispositivos pequeños */
 @media screen and (max-width: 768px) {
   .content {
     flex-direction: column;
     align-items: center;
   }
-  .title h1{
-    margin-top:135px;
-  }
-  .image-container{
 
+  .header h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .image-container {
     margin-right: 0px;
     margin-top: 65px;
-    display:flex;
+    display: flex;
     margin-bottom: 30px;
     align-items: center;
     justify-content: center;
   }
+
   .image-container img {
-    border-radius:600px;
-    max-width:100%;
-    width:40%;
+    border-radius: 600px;
+    max-width: 100%;
+    width: 40%;
   }
+
   .container {
     width: 90%;
-
   }
+
   .title h1 {
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 }

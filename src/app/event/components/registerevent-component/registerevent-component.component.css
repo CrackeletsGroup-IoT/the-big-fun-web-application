@@ -1,4 +1,3 @@
-/* Tipografía */
 .title h1 {
   font-family: "Nunito", sans-serif;
   font-style: normal;
@@ -7,109 +6,111 @@
   line-height: 57px;
   color: rgba(83, 16, 92, 0.96);
   text-align: left;
+  margin-bottom: 20px;
 }
 
-/* Fondo contenedor */
 .background {
   background: rgba(99, 99, 163, 0.35);
   border-radius: 30px;
   padding: 30px;
-  margin: 20px auto;
-  max-width: 1000px;
+  margin: 0 auto;
   width: 100%;
-  box-sizing: border-box;
+  max-width: 1000px;
 }
 
-/* Contenedor imagen */
-.imgContainer {
+.body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inputData {
   width: 100%;
+  max-width: 400px;
+  margin-left: 5%;
   text-align: center;
 }
 
-img {
-  width: 300px;
-  height: 350px;
+.inputText {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  border-radius: 5px;
 }
 
-/* Botón */
+.hourdate {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calendar, .imagelink {
+  width: 48%;
+  margin-bottom: 10px;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  border-radius: 4px;
+}
+
 .button {
   background-color: transparent;
   border: 1px solid rgba(83, 16, 92, 0.96);
   border-radius: 30px;
   color: rgba(83, 16, 92, 0.96);
-  margin-top: 10px;
   padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.textarea {
   width: 100%;
   max-width: 400px;
+  margin-bottom: 10px;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 
-/* Layout del body */
-.body {
-  display: flex;
-  justify-content: center;
-}
-
-/* Contenedor del formulario */
-.inputData {
+.maxcapacity {
   width: 100%;
-  max-width: 500px;
-  text-align: center;
-}
-
-/* Inputs base */
-.inputText,
-.textarea,
-.maxcapacity,
-.calendar,
-.imagelink {
-  width: 100%;
+  max-width: 400px;
   margin-bottom: 10px;
   font-family: "Nunito", sans-serif;
   font-style: normal;
   border-radius: 5px;
-  box-sizing: border-box;
 }
 
-/* Fila para pares de campos */
-.row-group {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-.row-group mat-form-field {
-  flex: 1 1 48%;
-  min-width: 200px;
-}
-
-/* Responsive */
-@media (max-width: 767px) {
-  .title h1 {
-    font-size: 28px;
-    line-height: 36px;
-    text-align: center;
-  }
-
+@media (max-width: 768px) {
   .background {
-    padding: 15px;
-    border-radius: 20px;
+    padding: 20px;
+    margin-top: 10px;
   }
 
-  .body {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .row-group {
-    flex-direction: column;
-  }
-
-  .row-group mat-form-field {
+  .inputText, .calendar, .imagelink, .textarea, .maxcapacity {
     width: 100%;
+    max-width: none;
+  }
+
+  .hourdate {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .calendar, .imagelink {
+    width: 100%;
+    margin-bottom: 10px;
   }
 
   .button {
     width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 768px) {
+  .background {
+    max-width: 800px;
   }
 }

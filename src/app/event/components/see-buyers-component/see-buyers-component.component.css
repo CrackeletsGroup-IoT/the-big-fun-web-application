@@ -1,16 +1,3 @@
-.background {
-  background: rgba(99, 99, 163, 0.35);
-  border-radius: 30px;
-  height:600px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 50px auto;
-
-}
-.totalContent{
-  height: 500px;
-  overflow-y: scroll;
-}
 .title h1 {
   font-family: "Nunito", sans-serif;
   font-style: normal;
@@ -21,22 +8,56 @@
   text-align: left;
   margin-top: 5px;
 }
-.eventsContainer {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-}
-.mat-table{
-  width: 100%;
-  max-width: 1200px;
-}
-button{
 
+.background {
+  background: rgba(99, 99, 163, 0.35);
+  border-radius: 30px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.totalContent {
+  height: 500px;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+
+.mat-table {
+  width: 100%;
+  max-width: 100%;
+  border: 3px solid rgba(3, 83, 151, 1);
+  border-radius: 5px;
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 16px;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.mat-column-details {
+  width: 150px;
+}
+
+.mat-header-row {
+  background-color: rgba(83, 16, 92, 0.1);
+  font-weight: bold;
+}
+
+.mat-cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+button {
   background-color: rgba(83, 16, 92, 0.96);
   color: white !important;
   border: none;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 20px;
   font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 800;
@@ -46,6 +67,7 @@ button{
   height: 50px;
   width: 150px;
 }
+
 .tableStyle {
   display: flex;
   flex-direction: row;
@@ -54,12 +76,33 @@ button{
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.mat-column-details {
-  width: 150px;
-}
-.mat-header-cell,
-.mat-cell {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+@media (max-width: 768px) {
+  .background {
+    padding: 20px;
+    margin-top: 10px;
+  }
+
+  .totalContent {
+    max-height: 300px;
+  }
+
+  .mat-table {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .title h1 {
+    font-size: 28px;
+  }
+
+  .button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .tableStyle {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

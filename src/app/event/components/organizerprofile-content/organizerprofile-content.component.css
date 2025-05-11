@@ -1,59 +1,68 @@
-div{
-  padding:8px;
-  margin:auto;
+div {
+  padding: 8px;
+  margin: auto;
 }
 
-img{
-  width: 450px;
-  height: 404px;
+img {
+  width: 100%; /* Hacer la imagen adaptable al tamaño del contenedor */
+  height: auto; /* Mantener la proporción de la imagen */
 }
 
-.footer>div{
+.footer > div {
   width: 33%;
 }
 
-.arriba{
+.arriba {
   margin-top: 10px;
 }
 
-.footer{
+.footer {
   bottom: 0;
-  width: 98.4%;
+  width: 100%; /* Asegurarse de que el footer ocupe todo el ancho */
   padding: 10px;
   display: flex;
+  flex-wrap: wrap; /* Hacer que los elementos se ajusten en pantallas más pequeñas */
+  justify-content: space-between; /* Alinear los elementos correctamente */
 }
 
-.left{
+.left {
   margin-left: 90px;
   margin-top: 4px;
+  width: 100%; /* Asegurarse de que ocupe el ancho disponible */
+  text-align: center; /* Centrar la imagen y el título */
 }
 
-.title{
+.title {
   text-align: center;
-  justify-content:center;
+  justify-content: center;
   color: rgba(83, 16, 92, 1);
-  font-size:40px;
+  font-size: 40px;
   font-family: "Nunito", sans-serif;
-  font-weight:bold;
+  font-weight: bold;
   margin-left: 50px;
 }
 
 .example-viewport {
   height: 450px;
-  width: 805px;
+  width: 100%; /* Ajustar al tamaño de pantalla disponible */
 }
 
-.rights{
+.rights {
   display: flex;
   align-items: center;
-  margin-left: 90px;
+  justify-content: center; /* Centrar los elementos en pantallas pequeñas */
+  margin-left: 0; /* Eliminar márgenes innecesarios en pantallas pequeñas */
+  width: 100%;
 }
 
-.textos{
+.textos {
   font-family: "Nunito", sans-serif;
+  width: 100%;
 }
+
 .container {
-  width: 500px;
+  width: 100%;
+  max-width: 500px; /* Asegurarse de que el contenedor no sea demasiado grande en pantallas grandes */
   height: 50px;
   border: 1px solid #53105c;
   border-radius: 10px;
@@ -61,11 +70,12 @@ img{
   background: #ffffff;
   margin-bottom: 30px;
 }
+
 .container h3 {
-  width: 500px;
+  width: 100%;
   height: 50px;
   margin-top: 10px;
-  text-align:center;
+  text-align: center;
   font-family: "Nunito", sans-serif;
   color: #53105c;
 }
@@ -80,7 +90,7 @@ img{
   color: rgba(83, 16, 92, 0.96);
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
-  font-weight:bold;
+  font-weight: bold;
   height: 45px;
   justify-content: center;
 }
@@ -92,7 +102,45 @@ img{
 
 @media screen and (max-width: 768px) {
   .container {
-    width: 90%;
+    width: 90%; /* Asegurarse de que los contenedores sean más pequeños en pantallas móviles */
+  }
+
+  .footer {
+    padding: 20px 10px; /* Espaciado adecuado en pantallas pequeñas */
+  }
+
+  .left {
+    margin-left: 0; /* Eliminar márgenes en pantallas pequeñas */
+  }
+
+  .title {
+    font-size: 30px; /* Reducir el tamaño del título para pantallas pequeñas */
+    margin-left: 0; /* Eliminar margen izquierdo */
+  }
+
+  .rights {
+    flex-direction: column; /* Apilar los elementos verticalmente en pantallas pequeñas */
+    align-items: flex-start;
+  }
+
+  .textos {
+    padding: 10px; /* Agregar algo de padding para un mejor espaciado */
+  }
+
+  .example-viewport {
+    height: 400px; /* Ajustar el alto en pantallas pequeñas */
+  }
+
+  .example-button-row {
+    width: 100%;
+    text-align: center;
+  }
+
+  .uptButton {
+    margin-left: 0; /* Centrar el botón en pantallas pequeñas */
+    width: 100%;
+    max-width: 250px; /* Asegurar que el botón no sea demasiado ancho */
+    height: 50px;
+    font-size: 18px; /* Ajustar el tamaño de la fuente en pantallas pequeñas */
   }
 }
-

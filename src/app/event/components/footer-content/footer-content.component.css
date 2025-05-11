@@ -1,39 +1,79 @@
 .footer {
   background-color: #6363A3;
-  width: 100%;
-  padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  color: white;
-  box-sizing: border-box;
-}
-
-
-.footer>div{
-  width: 33%;
-}
-
-h3{
-  margin-bottom: 0;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
   width: 100%;
-  justify-content: center;
-  display: flex;
+  box-sizing: border-box;
+  color: white;
 }
 
-.contentt{
-  display: flex;
-  justify-content: center;
+.footer > div {
+  flex: 1 1 30%;
+  text-align: center;
 }
 
-.rights{
+h3 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.contentt {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.rights {
   display: flex;
   align-items: center;
-}
-img{
-  margin-top:5px;
-  height: 30px;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 0.9rem;
 }
 
-.references{
-  margin-right: 30px;
+img {
+  height: 30px;
+  width: 30px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+.references {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer > div {
+    width: 100%;
+  }
+
+  .contentt {
+    gap: 16px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .rights {
+    font-size: 0.85rem;
+    margin-top: 10px;
+  }
 }
