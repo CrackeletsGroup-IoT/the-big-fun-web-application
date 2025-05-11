@@ -29,14 +29,13 @@
   text-align: justify;
   background: #ffffff;
   margin-bottom: 30px;
-  margin-left:30px;
+  margin-left: 30px;
 }
-
 
 .container input {
   max-width: 100%;
   border: none;
-  margin-top:30px;
+  margin-top: 30px;
   padding: 5px;
   font-family: 'Nunito', sans-serif;
   font-style: normal;
@@ -45,7 +44,8 @@
   line-height: 25px;
   color: #53105c;
 }
-.container label{
+
+.container label {
   font-family: "Nunito", sans-serif;
   font-style: normal;
   font-size: 18px;
@@ -56,11 +56,7 @@
   font-weight: 700;
   width: 630px;
   height: 60px;
-
-
 }
-
-
 
 .container h3 {
   width: 630px;
@@ -73,8 +69,6 @@
   font-size: 18px;
   line-height: 25px;
   color: #53105c;
-
-
 }
 
 .uptButton {
@@ -91,21 +85,20 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-
 }
-.image-container{
-  display:flex;
+
+.image-container {
+  display: flex;
   justify-content: center;
-  margin-right:220px;
+  margin-right: 220px;
   margin-bottom: 100px;
 }
-.image-container img{
 
+.image-container img {
   height: auto;
   border-radius: 600px;
   max-width: 485px;
-  width:100%
-
+  width: 100%;
 }
 
 .info {
@@ -122,38 +115,57 @@
   margin-bottom: 70px;
 }
 
+/* Responsividad para pantallas pequeñas */
 @media screen and (max-width: 768px) {
   .content {
     flex-direction: column;
     align-items: center;
   }
-  .title h1{
-    margin-top:135px;
 
+  .title h1 {
+    margin-top: 135px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
-  .image-container{
-    margin-right: 0px;
+
+  .image-container {
+    margin-right: 0;
     margin-top: 65px;
-    display:flex;
+    display: flex;
     margin-bottom: 30px;
   }
+
   .image-container img {
-    border-radius:600px;
-    max-width:100%;
-    width:40%;
-
-
+    border-radius: 600px;
+    max-width: 100%;
+    width: 40%; /* Se ajusta la imagen al 40% del ancho disponible */
   }
 
   .container {
     width: 90%;
-
+    margin-left: 0; /* Se elimina margen izquierdo */
   }
 
+  .container input {
+    padding: 10px; /* Mejora el relleno en dispositivos móviles */
+    font-size: 16px; /* Ajuste de tamaño de fuente */
+  }
 
-  .title h1 {
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
+  .container label {
+    font-size: 16px; /* Ajuste de tamaño de fuente para mejor legibilidad */
+    margin-top: 20px;
+  }
+
+  .button-container {
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  .uptButton {
+    width: 100%; /* El botón ocupa el 100% del ancho */
+    max-width: 350px; /* Asegura que no se desborde */
+    height: 50px; /* Ajuste de la altura para mejorar la interacción táctil */
+    border-radius: 30px; /* Redondeo más suave */
   }
 }

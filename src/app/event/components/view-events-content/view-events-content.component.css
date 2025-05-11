@@ -1,19 +1,17 @@
+/* General background and container styling */
 .background {
   background: rgba(99, 99, 163, 0.35);
   border-radius: 30px;
-  height:600px;
+  height: 600px;
   padding: 40px;
   max-width: 1200px;
   margin: 50px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Añadido para un toque sutil */
+}
 
-}
-.totalContent{
-  height: 500px;
-  overflow-y: scroll;
-}
+/* Title styling */
 .title h1 {
   font-family: "Nunito", sans-serif;
-  font-style: normal;
   font-weight: 800;
   font-size: 42px;
   line-height: 57px;
@@ -21,31 +19,60 @@
   text-align: left;
   margin-top: 5px;
 }
-.eventsContainer {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
+
+/* Table styling */
+.totalContent {
+  height: 500px;
+  overflow-y: scroll;
 }
-.mat-table{
+
+/* Table layout */
+.mat-table {
   width: 100%;
   max-width: 1200px;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
-button{
 
+.mat-column-details {
+  width: 150px;
+}
+
+.mat-header-cell,
+.mat-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Button styling */
+button {
   background-color: rgba(83, 16, 92, 0.96);
   color: white !important;
   border: none;
   border-radius: 5px;
   padding: 10px;
   font-family: "Nunito", sans-serif;
-  font-style: normal;
   font-weight: 800;
   font-size: 16px;
   cursor: pointer;
   margin-left: 50px;
   height: 50px;
   width: 150px;
+  transition: background-color 0.3s ease; /* Añadido para interactividad */
 }
+
+button:hover {
+  background-color: rgba(83, 16, 92, 1); /* Cambio de color al pasar el ratón */
+}
+
+/* Flexbox for layout control */
+.eventsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
 .tableStyle {
   display: flex;
   flex-direction: row;
@@ -54,12 +81,39 @@ button{
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.mat-column-details {
-  width: 150px;
+
+/* Additional styling for links and actions */
+a {
+  text-decoration: none;
 }
-.mat-header-cell,
-.mat-cell {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+a button {
+  margin-left: 20px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .background {
+    padding: 20px;
+    height: auto;
+  }
+
+  .title h1 {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .mat-table {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .eventsContainer {
+    margin-bottom: 20px;
+  }
 }
