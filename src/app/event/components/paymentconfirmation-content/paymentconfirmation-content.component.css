@@ -1,3 +1,15 @@
+mat-header-cell, mat-cell {
+  display: table-cell;
+  white-space: nowrap;
+  text-align: left;
+  padding: 8px;
+}
+
+mat-header-row, mat-row {
+  display: table-row;
+}
+
+
 .title h1 {
   font-family: "Nunito", sans-serif;
   font-style: normal;
@@ -38,8 +50,11 @@ img {
 }
 
 mat-table {
+  display: table;
   width: 100%;
+  table-layout: auto;
 }
+
 
 mat-header-row, mat-row {
   display: table-row;
