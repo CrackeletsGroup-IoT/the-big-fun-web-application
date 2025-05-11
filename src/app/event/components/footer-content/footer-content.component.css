@@ -1,11 +1,13 @@
-.footer{
+.footer {
   background-color: #6363A3;
-  position: absolute;
-  bottom: 0;
-  width: 98.4%;
+  width: 100%;
   padding: 10px;
   display: flex;
+  flex-wrap: wrap;
+  color: white;
+  box-sizing: border-box;
 }
+
 
 .footer>div{
   width: 33%;
