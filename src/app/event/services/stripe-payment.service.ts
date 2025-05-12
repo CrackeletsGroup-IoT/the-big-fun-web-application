@@ -7,8 +7,8 @@ import {Observable} from "rxjs";
 })
 export class StripePaymentService {
 
-  //private baseUrl='https://the-big-fun.zeabur.app/api/v1/stripe-payment';
-  private baseUrl='http://localhost:8080/api/v1/stripe-payment';
+  private baseUrl='https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/stripe-payment';
+  //private baseUrl='http://localhost:8080/api/v1/stripe-payment';
 
   constructor(private http:HttpClient) {
   }
