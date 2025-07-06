@@ -3,7 +3,7 @@ import {catchError, Observable, retry, tap, throwError} from "rxjs";
 
 export class BaseService <T> {
 
-  basePath='https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1'
+  basePath='https://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1'
   //basePath='http://localhost:8080/api/v1'
 
   httpOptions={
@@ -66,7 +66,7 @@ export class BaseService <T> {
 
   addAttendeeToEvent(eventId: number, attendeeId: number): Observable<any> {
     //const url = `http://localhost:8080/api/v1/eventsto/${eventId}/attendee/${attendeeId}`;
-    const url = `https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/eventsto/${eventId}/attendee/${attendeeId}`;
+    const url = `https://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1/eventsto/${eventId}/attendee/${attendeeId}`;
 
     return this.http.post(url, {}).pipe(
       tap(response => {
@@ -82,7 +82,7 @@ export class BaseService <T> {
   }
   addEventToOrganizer(organizerId: number, eventId: number): Observable<any> {
     //const url = `http://localhost:8080/api/v1/organizersto/${organizerId}/events/${eventId}`;
-    const url = `https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/organizersto/${organizerId}/events/${eventId}`;
+    const url = `https://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1/organizersto/${organizerId}/events/${eventId}`;
 
     return this.http.post(url, {}).pipe(
       tap(response => {
@@ -98,7 +98,7 @@ export class BaseService <T> {
   }
   addPayamentToEvent(paymentId: number, eventId: number): Observable<any> {
     //const url = `http://localhost:8080/api/v1/eventsp/${eventId}/payments/${paymentId}`;
-    const url = `hhttps://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/eventsp/${eventId}/payments/${paymentId}`;
+    const url = `hhttps://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1/eventsp/${eventId}/payments/${paymentId}`;
 
     return this.http.post(url, {}).pipe(
       tap(response => {
@@ -112,7 +112,7 @@ export class BaseService <T> {
   }
   getEventsInOrganizers(organizerId: number): Observable<any> {
     //const url = `http://localhost:8080/api/v1/organizersto/${organizerId}/events`;
-    const url = `https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/organizersto/${organizerId}/events`;
+    const url = `https://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1/organizersto/${organizerId}/events`;
 
     return this.http.get(url).pipe(
       tap(response => {
@@ -126,7 +126,7 @@ export class BaseService <T> {
   }
   getEventsInAttendee(attendeeId: number): Observable<any> {
     //const url = `http://localhost:8080/api/v1/eventsto/attendees/${attendeeId}`;
-    const url = `https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/eventsto/attendees/${attendeeId}`;
+    const url = `https://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1/eventsto/attendees/${attendeeId}`;
 
     return this.http.get(url).pipe(
       tap(response => {

@@ -12,7 +12,7 @@ export class AttendeeService extends BaseService<Attendee>{
 
   constructor(http:HttpClient) {
     super(http);
-    this.basePath='https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/attendees';
+    this.basePath='https://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1/attendees';
     //this.basePath='http://localhost:8080/api/v1/attendees';
   }
 

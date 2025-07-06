@@ -12,13 +12,13 @@ export class EventsService extends BaseService<Event>{
 
   constructor(http:HttpClient,private router:Router) {
     super(http);
-    this.basePath='https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/events';
+    this.basePath='https://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1/events';
     //this.basePath='http://localhost:8080/api/v1/events';
   }
 
   findAttendeeByName(attendeeName: String): Observable<any> {
 
-    const url = 'https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/attendees/byname/'+attendeeName;
+    const url = 'https://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1/attendees/byname/'+attendeeName;
     //const url = 'http://localhost:8080/api/v1/attendees/byname/'+attendeeName;
 
     return this.http.get(url, this.httpOptions).pipe(

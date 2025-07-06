@@ -7,7 +7,7 @@ import {catchError, Observable, tap, throwError} from "rxjs";
 })
 export class EventAtendeeService {
 
-  private basePath='https://the-big-fun-api-g6fnhyethbazcvc2.brazilsouth-01.azurewebsites.net/api/v1/event-attendees';
+  private basePath='https://the-big-fun-bhh0c0dtevffd7ff.brazilsouth-01.azurewebsites.net/api/v1/event-attendees';
   //private basePath='http://localhost:8080/api/v1/event-attendees';
 
   constructor(private http:HttpClient) {
